@@ -29,7 +29,6 @@ screen5:
 	b screen5
 
 .globl clear
-
 clear:
 	push {lr}
 	mov r0,#0

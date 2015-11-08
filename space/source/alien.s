@@ -1,0 +1,2 @@
+.globl alien
+alien:

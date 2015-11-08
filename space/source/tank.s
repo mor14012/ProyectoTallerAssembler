@@ -1,7 +1,6 @@
 .globl tank
 tank:
 
-
 .section .data
 .align 2
 
