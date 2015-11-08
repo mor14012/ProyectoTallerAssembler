@@ -1,5 +1,10 @@
 .globl alien
 alien:
+	push {r12}
+	counter .req r12
+
+
+	pop {r12}
 
 
 alienAlive:
