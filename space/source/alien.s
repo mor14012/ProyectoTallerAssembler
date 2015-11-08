@@ -16,10 +16,8 @@ alien:
 		ldr state, =State
 		ldr state, [r11]
 		cmp state, #0
-		beq spriteA 	/*Si el estado esta en 0, se hace el spriteA*/
 		bne spriteB 	/*Si el estado esta en 1, se hace el spriteB*/
 		
-
 		spriteA:
 			cmp r0, #1
 			ldreq r0,=alien1_a
@@ -34,18 +32,7 @@ alien:
 			ldreq r1,=alien3_aWidth
 			ldreq r2,=alien3_aHeight
 
-			ldr r3,=alienxPosition
-			ldr r3, [r3, counter]
-
-			ldr r4,=alienyPosition
-			
-
-
-			ldr r0, =alienxPosition
-			ldr r0, [r0, counter]
-			//mov r1, poxy
-
-
+			b DrawAlien
 
 		spriteB:
 			cmp r0, #1
@@ -61,18 +48,22 @@ alien:
 			ldreq r1,=alien3_bWidth
 			ldreq r2,=alien3_bHeight
 
+	DrawAlien: 							@Falta aumentar la posicion en X y la posicion en Y
+		ldr r3,=alienxPosition
+		ldr r3, [r3, counter]
+		ldr r4,=alienyPosition
+		ldr r4, [r4, counter]
+		push {r4}
+		bl DrawImage
 
-
-		ldr r2, =alien1_aHeight
-		ldrh r2, [r2]
-		ciclo:
-
-		//dibujar pixel
-		sub r2, #1
-
-		cmp r0, #1
-		@ldalien1_a
-
+	UpdateAlien:
+		ldr r0,=State
+		mov r2, #0
+		mov r3, #1
+		ldr r1, [r0]
+		cmp r1, #0
+		streq r3, [r0]
+		strne r2, [r0]
 
 
 @ R0: Matriz de la imagen
@@ -80,20 +71,6 @@ alien:
 @ R2: Alto de la imagen
 @ R3: Posicion en X 
 @ Stack: Posicion en Y 
-
-
-/*alien1_b.png
-alien2_a.png
-alien2_b.png
-alien3_a.png
-alien3_b.png
-sprites.png
-tank_blue.png
-tank_green.png
-tank_red.png
-tank_white.png
-*/
-
 
 
 	pop {r11, r12}
