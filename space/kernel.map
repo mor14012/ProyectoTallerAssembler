@@ -1,0 +1,146 @@
+
+Discarded input sections
+
+ .bss           0x0000000000000000        0x0 build/drawing.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/drawing.o
+ .bss           0x0000000000000000        0x0 build/figuras.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/figuras.o
+ .bss           0x0000000000000000        0x0 build/frameBuffer.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/frameBuffer.o
+ .bss           0x0000000000000000        0x0 build/gpio.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/gpio.o
+ .bss           0x0000000000000000        0x0 build/mailbox.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/mailbox.o
+ .bss           0x0000000000000000        0x0 build/main.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/main.o
+ .bss           0x0000000000000000        0x0 build/maths.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/maths.o
+ .bss           0x0000000000000000        0x0 build/random.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/random.o
+ .bss           0x0000000000000000        0x0 build/screen.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/screen.o
+ .bss           0x0000000000000000        0x0 build/systemTimer.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/systemTimer.o
+ .bss           0x0000000000000000        0x0 build/tags.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/tags.o
+ .bss           0x0000000000000000        0x0 build/tank.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/tank.o
+ .bss           0x0000000000000000        0x0 build/text.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/text.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/drawing.o
+LOAD build/figuras.o
+LOAD build/frameBuffer.o
+LOAD build/gpio.o
+LOAD build/mailbox.o
+LOAD build/main.o
+LOAD build/maths.o
+LOAD build/random.o
+LOAD build/screen.o
+LOAD build/systemTimer.o
+LOAD build/tags.o
+LOAD build/tank.o
+LOAD build/text.o
+
+.init           0x0000000000008000        0x4
+ *(.init)
+ .init          0x0000000000008000        0x4 build/main.o
+                0x0000000000008000                _start
+
+.text           0x0000000000008004      0x920
+ *(.text)
+ .text          0x0000000000008004      0x1d4 build/drawing.o
+                0x0000000000008004                SetForeColour
+                0x000000000000801c                SetGraphicsAddress
+                0x0000000000008028                DrawPixel
+                0x0000000000008070                DrawLine
+                0x00000000000080ec                DrawCharacter
+                0x0000000000008158                DrawString
+ .text          0x00000000000081d8      0x278 build/figuras.o
+                0x00000000000081d8                DrawCircle
+                0x0000000000008338                DrawRectangle
+                0x0000000000008374                DrawTriangle
+                0x00000000000083bc                DrawTriangleI
+                0x0000000000008408                DrawTriangleRectangle
+ .text          0x0000000000008450       0x60 build/frameBuffer.o
+                0x0000000000008450                InitialiseFrameBuffer
+ .text          0x00000000000084b0       0x98 build/gpio.o
+                0x00000000000084b0                GetGpioAddress
+                0x00000000000084b8                SetGpioFunction
+                0x0000000000008508                SetGpio
+ .text          0x0000000000008548       0x6c build/mailbox.o
+                0x0000000000008548                GetMailboxBase
+                0x0000000000008550                MailboxRead
+                0x0000000000008584                MailboxWrite
+ .text          0x00000000000085b4       0x48 build/main.o
+ .text          0x00000000000085fc       0x48 build/maths.o
+                0x00000000000085fc                DivideU32
+ .text          0x0000000000008644       0x18 build/random.o
+                0x0000000000008644                Random
+ .text          0x000000000000865c       0x30 build/screen.o
+                0x000000000000865c                screen1
+                0x0000000000008660                screen2
+                0x0000000000008664                screen3
+                0x0000000000008668                screen4
+                0x000000000000866c                screen5
+                0x0000000000008670                clear
+ .text          0x000000000000868c       0x40 build/systemTimer.o
+                0x000000000000868c                GetSystemTimerBase
+                0x0000000000008694                GetTimeStamp
+                0x00000000000086a4                Wait
+ .text          0x00000000000086cc       0x74 build/tags.o
+                0x00000000000086cc                FindTag
+ .text          0x0000000000008740        0x0 build/tank.o
+                0x0000000000008740                tank
+ .text          0x0000000000008740      0x1e4 build/text.o
+                0x0000000000008740                ReverseString
+                0x000000000000876c                UnsignedString
+                0x00000000000087bc                SignedString
+                0x00000000000087e8                FormatString
+
+.data           0x0000000000009000     0x2034
+ *(.data)
+ .data          0x0000000000009000      0x810 build/drawing.o
+                0x0000000000009004                graphicsAddress
+ .data          0x0000000000009810        0x0 build/figuras.o
+ *fill*         0x0000000000009810      0x7f0 
+ .data          0x000000000000a000     0x1000 build/frameBuffer.o
+                0x000000000000a000                FrameBufferInfo
+ .data          0x000000000000b000        0x0 build/gpio.o
+ .data          0x000000000000b000        0x0 build/mailbox.o
+ .data          0x000000000000b000        0x0 build/main.o
+ .data          0x000000000000b000        0x0 build/maths.o
+ .data          0x000000000000b000        0x0 build/random.o
+ .data          0x000000000000b000        0x0 build/screen.o
+ .data          0x000000000000b000        0x0 build/systemTimer.o
+ .data          0x000000000000b000       0x24 build/tags.o
+ .data          0x000000000000b024       0x10 build/tank.o
+                0x000000000000b024                player_position
+                0x000000000000b028                player_lives
+                0x000000000000b02c                player_points
+                0x000000000000b030                player_special
+ .data          0x000000000000b034        0x0 build/text.o
+
+/DISCARD/
+ *(*)
+OUTPUT(build/output.elf elf32-littlearm)
