@@ -46,8 +46,9 @@ alien:
 		sub r2, #1
 
 		cmp r0, #1
-		ldalien1_a
-alien1_b.png
+		@ldalien1_a
+
+/*alien1_b.png
 alien2_a.png
 alien2_b.png
 alien3_a.png
@@ -57,7 +58,7 @@ tank_blue.png
 tank_green.png
 tank_red.png
 tank_white.png
-
+*/
 
 
 
