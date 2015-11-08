@@ -21,32 +21,66 @@ alien:
 		
 
 		spriteA:
-			ldr r2, =alien1_a
-			ldr r2, [r2]
-			mov r0, r2
-			push {lr}
-			bl SetForeColour
-			pop {lr}
-			mov r0, posx
-			ldr r0, =xPosition
-			ldr r0, =[xPosition, counter]
-			mov r1, poxy
-			push {lr}
-			bl drawPixel
-			pop {lr}
+			cmp r0, #1
+			ldreq r0,=alien1_a
+			ldreq r1,=alien1_aWidth
+			ldreq r2,=alien1_aHeight
+			cmp r0, #2
+			ldreq r0,=alien2_a
+			ldreq r1,=alien2_aWidth
+			ldreq r2,=alien2_aHeight
+			cmp r0, #3
+			ldreq r0,=alien3_a
+			ldreq r1,=alien3_aWidth
+			ldreq r2,=alien3_aHeight
+
+			ldr r3,=alienxPosition
+			ldr r3, [r3, counter]
+
+			ldr r4,=alienyPosition
+			
+
+
+			ldr r0, =alienxPosition
+			ldr r0, [r0, counter]
+			//mov r1, poxy
+
 
 
 		spriteB:
+			cmp r0, #1
+			ldreq r0,=alien1_b
+			ldreq r1,=alien1_bWidth
+			ldreq r2,=alien1_bHeight
+			cmp r0, #2
+			ldreq r0,=alien2_b
+			ldreq r1,=alien2_bWidth
+			ldreq r2,=alien2_bHeight
+			cmp r0, #3
+			ldreq r0,=alien3_b
+			ldreq r1,=alien3_bWidth
+			ldreq r2,=alien3_bHeight
+
+
 
 		ldr r2, =alien1_aHeight
 		ldrh r2, [r2]
 		ciclo:
 
-		dibujar pixel
+		//dibujar pixel
 		sub r2, #1
 
 		cmp r0, #1
 		@ldalien1_a
+
+
+
+@ R0: Matriz de la imagen
+@ R1: Ancho de la imagen
+@ R2: Alto de la imagen
+@ R3: Posicion en X 
+@ Stack: Posicion en Y 
+
 
 /*alien1_b.png
 alien2_a.png
@@ -62,7 +96,7 @@ tank_white.png
 
 
 
-	pop {r12, r11}
+	pop {r11, r12}
 
 State:
 	.word 0

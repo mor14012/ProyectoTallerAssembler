@@ -4,9 +4,10 @@
 @ R0: Matriz de la imagen
 @ R1: Ancho de la imagen
 @ R2: Alto de la imagen
-@ R3: Posicion en X del alien
-@ Stack: Posicion en Y del alien
+@ R3: Posicion en X 
+@ Stack: Posicion en Y 
 @--- Salidas ---
+@ creampie en la cara de JD
 DrawImage:
 	pop {r4} 					/*Se obtiene del stack la posicion en Y del alien a dibujar*/
 	push {r4-r12, lr} 				
