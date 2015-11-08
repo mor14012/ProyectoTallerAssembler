@@ -19,6 +19,32 @@ alien:
 		beq spriteA 	/*Si el estado esta en 0, se hace el spriteA*/
 		bne spriteB 	/*Si el estado esta en 1, se hace el spriteB*/
 		
+
+		spriteA:
+			ldr r2, =alien1_a
+			ldr r2, [r2]
+			mov r0, r2
+			push {lr}
+			bl SetForeColour
+			pop {lr}
+			mov r0, posx
+			ldr r0, =xPosition
+			ldr r0, =[xPosition, counter]
+			mov r1, poxy
+			push {lr}
+			bl drawPixel
+			pop {lr}
+
+
+		spriteB:
+
+		ldr r2, =alien1_aHeight
+		ldrh r2, [r2]
+		ciclo:
+
+		dibujar pixel
+		sub r2, #1
+
 		cmp r0, #1
 		ldalien1_a
 alien1_b.png
@@ -43,8 +69,8 @@ State:
 alienAlive:
 	.word 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3
 
-xPosition:
+alienxPosition:
 	.word 100, 300, 500, 700, 900, 100, 300, 500, 700, 900, 100, 300, 500, 700, 900 
 
-yPosition:
+alienyPosition:
 	.word 50, 50, 50, 50, 50, 150, 150, 150, 150, 150, 250, 250, 250, 250, 250
