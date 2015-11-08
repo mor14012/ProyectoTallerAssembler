@@ -18,8 +18,7 @@ alien:
 		cmp state, #0
 		beq spriteA 	/*Si el estado esta en 0, se hace el spriteA*/
 		bne spriteB 	/*Si el estado esta en 1, se hace el spriteB*/
-		//si si es 0, que se vaya a sprite1
-		//si no, que se vaya a sprite2
+		
 		cmp r0, #1
 		ldalien1_a
 alien1_b.png
