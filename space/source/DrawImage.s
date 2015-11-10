@@ -7,7 +7,7 @@
 @ R3: Posicion en X 
 @ Stack: Posicion en Y 
 @--- Salidas ---
-@ creampie en la cara de JD
+
 DrawImage:
 	pop {r4} 					/*Se obtiene del stack la posicion en Y del alien a dibujar*/
 	push {r4-r12, lr} 				
@@ -34,7 +34,7 @@ DrawImage:
 
 	DIRow:	
 		DIPixel:
-			ldr r0, [matrix, position]
+			ldrh r0, [matrix, position]
 			bl SetForeColour 							/*Se carga el color respectivo del pixel de la imagen del alien*/
 			mov r0, xPosition
 			mov r1, yPosition

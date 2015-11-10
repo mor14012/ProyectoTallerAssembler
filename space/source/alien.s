@@ -1,6 +1,6 @@
 .globl alien
 alien:
-	push {r11, r12}
+	push {r11, r12, lr}
 	counter .req r12
 	state .req r11
 
@@ -16,7 +16,7 @@ alien:
 		ldr state, =State
 		ldr state, [r11]
 		cmp state, #0
-		bne spriteB 	/*Si el estado esta en 1, se hace el spriteB*/
+		bne spriteB 	
 		
 		spriteA:
 			cmp r0, #1
@@ -48,7 +48,13 @@ alien:
 			ldreq r1,=alien3_bWidth
 			ldreq r2,=alien3_bHeight
 
-	DrawAlien: 							@Falta aumentar la posicion en X y la posicion en Y
+	UpdateAlienPosition:
+		ldr r3,=alienxPosition
+		ldr r4, [r3, counter]
+		add r4, #5
+		str r4, [r3, counter]
+
+	DrawAlien: 							
 		ldr r3,=alienxPosition
 		ldr r3, [r3, counter]
 		ldr r4,=alienyPosition
@@ -56,7 +62,11 @@ alien:
 		push {r4}
 		bl DrawImage
 
-	UpdateAlien:
+	add counter, #4
+	cmp counter, #60
+	bne CheckAlien
+
+	UpdateAlienState:
 		ldr r0,=State
 		mov r2, #0
 		mov r3, #1
@@ -65,15 +75,10 @@ alien:
 		streq r3, [r0]
 		strne r2, [r0]
 
+	bl clear
 
-@ R0: Matriz de la imagen
-@ R1: Ancho de la imagen
-@ R2: Alto de la imagen
-@ R3: Posicion en X 
-@ Stack: Posicion en Y 
+	pop {r11, r12, pc}
 
-
-	pop {r11, r12}
 
 State:
 	.word 0

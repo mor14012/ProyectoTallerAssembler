@@ -37,12 +37,9 @@ main:
 	mov fbInfoAddr,r0
 
 	bl SetGraphicsAddress
-
-b screen1
 	
 loop$:
 
+	b screen1
+
 	b loop$
-
-.section .data
-

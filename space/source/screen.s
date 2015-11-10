@@ -1,13 +1,14 @@
 @Pantalla de Inicio
 .globl screen1
 screen1:
-
+	b screen2
+	
 	b screen1
 
 @Pantalla de seleccion de personaje
 .globl screen2
 screen2:
-
+	bl alien
 	b screen2
 
 @Pantalla de juego
@@ -31,9 +32,12 @@ screen5:
 .globl clear
 clear:
 	push {lr}
+	mov r0, #0
+	bl SetForeColour
+	
 	mov r0,#0
 	mov r1,#0
 	ldr r2,=1024
-	ldr r3,=768
+	ldr r3,=384
 	bl DrawRectangle
 	pop {pc}
