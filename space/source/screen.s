@@ -21,7 +21,14 @@
 @Pantalla de Inicio
 .globl screen1
 screen1:
-	b screen2
+	ldr r0,=menu
+	mov r1, #0
+	mov r2, #0
+	bl DrawImage
+	
+	screen1ciclo:
+
+	b screen1ciclo
 	
 	b screen1
 
