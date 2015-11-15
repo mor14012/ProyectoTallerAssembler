@@ -101,18 +101,14 @@ screen2:
 @Pantalla de juego
 .globl screen3
 screen3:
-	push {lr}
 	ldr r0, =mann
 	mov r1, #0
 	mov r2, #1
-	bl DrawImage 		/*Dibujo de fondo temporal*/
-
-	bl tank 			/*Dibujo del tanque*/
-
-	bl alien
-	pop {lr}
-
-	b screen3
+	bl DrawImage 		
+	screen3Cicle:
+		bl tank 		
+		bl alien
+		b screen3Cicle
 
 @Salida
 .globl screenLoop
