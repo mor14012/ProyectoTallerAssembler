@@ -116,3 +116,22 @@ SetGpio:
 	.unreq setBit
 	.unreq gpioAddr
 	pop {pc}
+
+@ -----------GetGpio----------
+@ Verifica el estado del numero
+@ de pin de entrada especificado.
+@-----Parametros de Entrada--
+@ 	R0: Numero de pin de entrada
+@-----Parametros de Salida---
+@   R0: 1= High 0= Low
+@----------------------------
+.globl GetGpio
+GetGpio:
+	push {lr}
+	mov r2, r0 			@Se asigna el numero de pin a R2
+	bl GetGpioAddress 	@Se obtiene en R0 la direcicon GPIO base
+	ldr r0, [r0, #0x34] @Se carga la direccion GPIO de entradas
+	mov r1, #1 			@Carga #1 en R1
+	lsl r1, r2 		@Logital Shift Left de R1 el valor del numero de pin
+	and r0, r1 			@And entre la direccion GPIO y el bit respectivo al pin
+	pop {pc}
