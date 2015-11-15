@@ -42,6 +42,15 @@ tankMovement:
 	pop {pc}
 
 leftMove:
+	ldr r0,=mann
+	ldr r1,=tank_white
+	ldr r2,=player_Xposition
+	ldr r2, [r2]
+	ldr r3,=player_Yposition
+	ldr r3,[ r3]
+
+	bl DrawBackground
+
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
 	sub r2, #10
@@ -54,6 +63,14 @@ leftMove:
 
 
 rightMove:
+	ldr r0,=mann
+	ldr r1,=tank_white
+	ldr r2,=player_Xposition
+	ldr r2, [r2]
+	ldr r3,=player_Yposition
+	ldr r3,[ r3]
+
+	bl DrawBackground
 
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
