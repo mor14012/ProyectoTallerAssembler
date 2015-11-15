@@ -72,9 +72,11 @@ main:
 	mov fbInfoAddr,r0
 
 	bl SetGraphicsAddress
+
+	bl UsbInitialise
+	
+	b screen1
 	
 loop$:
-
-	b screen1
 
 	b loop$
