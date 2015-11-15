@@ -115,7 +115,7 @@ LOAD build/text.o
  .init          0x0000000000008000        0x4 build/main.o
                 0x0000000000008000                _start
 
-.text           0x0000000000008004      0xb20
+.text           0x0000000000008004      0xb28
  *(.text)
  .text          0x0000000000008004       0x5c build/DrawImage.o
                 0x0000000000008004                DrawImage
@@ -127,60 +127,60 @@ LOAD build/text.o
  .text          0x00000000000081f4        0x0 build/alien2_b.o
  .text          0x00000000000081f4        0x0 build/alien3_a.o
  .text          0x00000000000081f4        0x0 build/alien3_b.o
- .text          0x00000000000081f4      0x1d4 build/drawing.o
+ .text          0x00000000000081f4      0x1dc build/drawing.o
                 0x00000000000081f4                SetForeColour
                 0x000000000000820c                SetGraphicsAddress
                 0x0000000000008218                DrawPixel
-                0x0000000000008260                DrawLine
-                0x00000000000082dc                DrawCharacter
-                0x0000000000008348                DrawString
- .text          0x00000000000083c8      0x278 build/figuras.o
-                0x00000000000083c8                DrawCircle
-                0x0000000000008528                DrawRectangle
-                0x0000000000008564                DrawTriangle
-                0x00000000000085ac                DrawTriangleI
-                0x00000000000085f8                DrawTriangleRectangle
- .text          0x0000000000008640       0x60 build/frameBuffer.o
-                0x0000000000008640                InitialiseFrameBuffer
- .text          0x00000000000086a0       0x98 build/gpio.o
-                0x00000000000086a0                GetGpioAddress
-                0x00000000000086a8                SetGpioFunction
-                0x00000000000086f8                SetGpio
- .text          0x0000000000008738       0x6c build/mailbox.o
-                0x0000000000008738                GetMailboxBase
-                0x0000000000008740                MailboxRead
-                0x0000000000008774                MailboxWrite
- .text          0x00000000000087a4       0x48 build/main.o
- .text          0x00000000000087ec       0x48 build/maths.o
-                0x00000000000087ec                DivideU32
- .text          0x0000000000008834       0x18 build/random.o
-                0x0000000000008834                Random
- .text          0x000000000000884c       0x40 build/screen.o
-                0x000000000000884c                screen1
-                0x0000000000008854                screen2
-                0x000000000000885c                screen3
-                0x0000000000008860                screen4
-                0x0000000000008864                screen5
-                0x0000000000008868                clear
- .text          0x000000000000888c       0x40 build/systemTimer.o
-                0x000000000000888c                GetSystemTimerBase
-                0x0000000000008894                GetTimeStamp
-                0x00000000000088a4                Wait
- .text          0x00000000000088cc       0x74 build/tags.o
-                0x00000000000088cc                FindTag
- .text          0x0000000000008940        0x0 build/tank.o
-                0x0000000000008940                tank
- .text          0x0000000000008940        0x0 build/tank_blue.o
- .text          0x0000000000008940        0x0 build/tank_green.o
- .text          0x0000000000008940        0x0 build/tank_red.o
- .text          0x0000000000008940        0x0 build/tank_white.o
- .text          0x0000000000008940      0x1e4 build/text.o
-                0x0000000000008940                ReverseString
-                0x000000000000896c                UnsignedString
-                0x00000000000089bc                SignedString
-                0x00000000000089e8                FormatString
+                0x0000000000008264                DrawLine
+                0x00000000000082e0                DrawCharacter
+                0x000000000000834c                DrawString
+ .text          0x00000000000083d0      0x278 build/figuras.o
+                0x00000000000083d0                DrawCircle
+                0x0000000000008530                DrawRectangle
+                0x000000000000856c                DrawTriangle
+                0x00000000000085b4                DrawTriangleI
+                0x0000000000008600                DrawTriangleRectangle
+ .text          0x0000000000008648       0x60 build/frameBuffer.o
+                0x0000000000008648                InitialiseFrameBuffer
+ .text          0x00000000000086a8       0x98 build/gpio.o
+                0x00000000000086a8                GetGpioAddress
+                0x00000000000086b0                SetGpioFunction
+                0x0000000000008700                SetGpio
+ .text          0x0000000000008740       0x6c build/mailbox.o
+                0x0000000000008740                GetMailboxBase
+                0x0000000000008748                MailboxRead
+                0x000000000000877c                MailboxWrite
+ .text          0x00000000000087ac       0x48 build/main.o
+ .text          0x00000000000087f4       0x48 build/maths.o
+                0x00000000000087f4                DivideU32
+ .text          0x000000000000883c       0x18 build/random.o
+                0x000000000000883c                Random
+ .text          0x0000000000008854       0x40 build/screen.o
+                0x0000000000008854                screen1
+                0x000000000000885c                screen2
+                0x0000000000008864                screen3
+                0x0000000000008868                screen4
+                0x000000000000886c                screen5
+                0x0000000000008870                clear
+ .text          0x0000000000008894       0x40 build/systemTimer.o
+                0x0000000000008894                GetSystemTimerBase
+                0x000000000000889c                GetTimeStamp
+                0x00000000000088ac                Wait
+ .text          0x00000000000088d4       0x74 build/tags.o
+                0x00000000000088d4                FindTag
+ .text          0x0000000000008948        0x0 build/tank.o
+                0x0000000000008948                tank
+ .text          0x0000000000008948        0x0 build/tank_blue.o
+ .text          0x0000000000008948        0x0 build/tank_green.o
+ .text          0x0000000000008948        0x0 build/tank_red.o
+ .text          0x0000000000008948        0x0 build/tank_white.o
+ .text          0x0000000000008948      0x1e4 build/text.o
+                0x0000000000008948                ReverseString
+                0x0000000000008974                UnsignedString
+                0x00000000000089c4                SignedString
+                0x00000000000089f0                FormatString
 
-.data           0x0000000000009000    0x21044
+.data           0x0000000000009000   0x1ec044
  *(.data)
  .data          0x0000000000009000        0x0 build/DrawImage.o
  .data          0x0000000000009000        0x0 build/alien.o
@@ -209,42 +209,42 @@ LOAD build/text.o
                 0x0000000000015816                alien3_bWidth
                 0x0000000000015818                alien3_b
  *fill*         0x0000000000018818        0x8 
- .data          0x0000000000018820      0x810 build/drawing.o
+ .data          0x0000000000018820   0x1cb810 build/drawing.o
                 0x0000000000018824                graphicsAddress
- .data          0x0000000000019030        0x0 build/figuras.o
- *fill*         0x0000000000019030      0xfd0 
- .data          0x000000000001a000     0x1000 build/frameBuffer.o
-                0x000000000001a000                FrameBufferInfo
- .data          0x000000000001b000        0x0 build/gpio.o
- .data          0x000000000001b000        0x0 build/mailbox.o
- .data          0x000000000001b000        0x0 build/main.o
- .data          0x000000000001b000        0x0 build/maths.o
- .data          0x000000000001b000        0x0 build/random.o
- .data          0x000000000001b000        0x0 build/screen.o
- .data          0x000000000001b000        0x0 build/systemTimer.o
- .data          0x000000000001b000       0x24 build/tags.o
- .data          0x000000000001b024       0x10 build/tank.o
-                0x000000000001b024                player_position
-                0x000000000001b028                player_lives
-                0x000000000001b02c                player_points
-                0x000000000001b030                player_special
- .data          0x000000000001b034     0x3c04 build/tank_blue.o
-                0x000000000001b034                tank_blueHeight
-                0x000000000001b036                tank_blueWidth
-                0x000000000001b038                tank_blue
- .data          0x000000000001ec38     0x3c04 build/tank_green.o
-                0x000000000001ec38                tank_greenHeight
-                0x000000000001ec3a                tank_greenWidth
-                0x000000000001ec3c                tank_green
- .data          0x000000000002283c     0x3c04 build/tank_red.o
-                0x000000000002283c                tank_redHeight
-                0x000000000002283e                tank_redWidth
-                0x0000000000022840                tank_red
- .data          0x0000000000026440     0x3c04 build/tank_white.o
-                0x0000000000026440                tank_whiteHeight
-                0x0000000000026442                tank_whiteWidth
-                0x0000000000026444                tank_white
- .data          0x000000000002a044        0x0 build/text.o
+ .data          0x00000000001e4030        0x0 build/figuras.o
+ *fill*         0x00000000001e4030      0xfd0 
+ .data          0x00000000001e5000     0x1000 build/frameBuffer.o
+                0x00000000001e5000                FrameBufferInfo
+ .data          0x00000000001e6000        0x0 build/gpio.o
+ .data          0x00000000001e6000        0x0 build/mailbox.o
+ .data          0x00000000001e6000        0x0 build/main.o
+ .data          0x00000000001e6000        0x0 build/maths.o
+ .data          0x00000000001e6000        0x0 build/random.o
+ .data          0x00000000001e6000        0x0 build/screen.o
+ .data          0x00000000001e6000        0x0 build/systemTimer.o
+ .data          0x00000000001e6000       0x24 build/tags.o
+ .data          0x00000000001e6024       0x10 build/tank.o
+                0x00000000001e6024                player_position
+                0x00000000001e6028                player_lives
+                0x00000000001e602c                player_points
+                0x00000000001e6030                player_special
+ .data          0x00000000001e6034     0x3c04 build/tank_blue.o
+                0x00000000001e6034                tank_blueHeight
+                0x00000000001e6036                tank_blueWidth
+                0x00000000001e6038                tank_blue
+ .data          0x00000000001e9c38     0x3c04 build/tank_green.o
+                0x00000000001e9c38                tank_greenHeight
+                0x00000000001e9c3a                tank_greenWidth
+                0x00000000001e9c3c                tank_green
+ .data          0x00000000001ed83c     0x3c04 build/tank_red.o
+                0x00000000001ed83c                tank_redHeight
+                0x00000000001ed83e                tank_redWidth
+                0x00000000001ed840                tank_red
+ .data          0x00000000001f1440     0x3c04 build/tank_white.o
+                0x00000000001f1440                tank_whiteHeight
+                0x00000000001f1442                tank_whiteWidth
+                0x00000000001f1444                tank_white
+ .data          0x00000000001f5044        0x0 build/text.o
 
 /DISCARD/
  *(*)
