@@ -1,9 +1,8 @@
 .globl tank
 tank:
+	push {lr}
 
 	bl tankMovement
-
-	push {lr}
 
 	ldr r0, =tank_blue
 	ldr r1, =player_Xposition
@@ -16,27 +15,18 @@ tank:
 
 	pop {pc}
 
-
+.globl tankMovement
 tankMovement:
 
 	push {lr}
 	bl KeyboardUpdate
 	bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
-	pop {lr}
-	teq r0,#0
-	beq tankMovement
 
-	cmp r0, #'a' 	
-	push {lr}			
+	cmp r0, #'a' 		
 	bleq leftMove
-	pop {lr}
-
-	cmp r0, #'d' 
-	push {lr}				
+	cmp r0, #'d' 	
 	bleq rightMove
-	pop {lr}
-
-	mov pc, lr
+	pop {pc}
 
 leftMove:
 	ldr r1, =player_Xposition
@@ -52,8 +42,7 @@ leftMove:
 
 rightMove:
 
-ldr r1, =player_Xposition
-
+	ldr r1, =player_Xposition
 	ldr r2, [r1]
 	add r2, #10
 	cmp r2, #1004

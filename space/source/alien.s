@@ -8,6 +8,7 @@ alien:
 	mov counter, #0
 
 	CheckAlien:
+
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
 		cmp r0, #0

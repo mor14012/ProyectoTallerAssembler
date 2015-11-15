@@ -25,16 +25,64 @@ screen1:
 	mov r1, #0
 	mov r2, #0
 	bl DrawImage
-	
-	screen1ciclo:
 
-	b screen1ciclo
+	screen1ciclo:
+	
+		bl KeyboardUpdate
+		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
+
+		cmp r0, #'j' 		
+		bleq screen2
+		cmp r0, #'i' 	
+		bleq screen5
+
+		cmp r0, #'s'
+		beq screenLoop
+		b screen1ciclo
 	
 	b screen1
 
 @Pantalla de seleccion de personaje
 .globl screen2
 screen2:
+
+	ldr r0, =select
+	mov r1, #0
+	mov r2, #0
+	bl DrawImage
+
+	ldr r0, =tank_red
+	ldr r1, =350
+	ldr r2, =300
+	mov r3, #0
+	bl DrawImageTransparency
+
+	ldr r0, =tank_green
+	ldr r1, =350
+	ldr r2, =425
+	mov r3, #0
+	bl DrawImageTransparency
+
+
+	ldr r0, =tank_blue
+	ldr r1, =550
+	ldr r2, =300
+	mov r3, #0
+	bl DrawImageTransparency
+
+
+	ldr r0, =tank_white
+	ldr r1, =550
+	ldr r2, =425
+	mov r3, #0
+	bl DrawImageTransparency
+
+
+	b screen2
+
+@Pantalla de juego
+.globl screen3
+screen3:
 	push {lr}
 	ldr r0, =mann
 	mov r1, #0
@@ -45,13 +93,14 @@ screen2:
 
 	bl alien
 	pop {lr}
-	b screen2
-
-@Pantalla de juego
-.globl screen3
-screen3:
 
 	b screen3
+
+@Salida
+.globl screenLoop
+screenLoop:
+	//Pintar cuadrado negro
+	b screenLoop
 
 @Pantalla de resultados
 .globl screen4
