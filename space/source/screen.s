@@ -8,7 +8,16 @@ screen1:
 @Pantalla de seleccion de personaje
 .globl screen2
 screen2:
+	push {lr}
+	ldr r0, =mann
+	mov r1, #0
+	mov r2, #1
+	bl DrawImage 		/*Dibujo de fondo temporal*/
+
+	bl tank 			/*Dibujo del tanque*/
+
 	bl alien
+	pop {lr}
 	b screen2
 
 @Pantalla de juego
