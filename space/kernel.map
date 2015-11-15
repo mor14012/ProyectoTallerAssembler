@@ -425,7 +425,7 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000801070       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x00000000008010a4      0xf2c
+.text           0x00000000008010a4      0xfa0
  *.c.o(.text)
  *(.text)
  .text          0x00000000008010a4      0x140 build/DrawImage.o
@@ -475,39 +475,40 @@ LOAD ./libcsud.a
  .text          0x0000000000801b68        0x0 build/menu.o
  .text          0x0000000000801b68       0x18 build/random.o
                 0x0000000000801b68                Random
- .text          0x0000000000801b80      0x118 build/screen.o
+ .text          0x0000000000801b80      0x154 build/screen.o
                 0x0000000000801b80                screen1
                 0x0000000000801bb8                screen2
-                0x0000000000801c1c                screen3
-                0x0000000000801c40                screenLoop
-                0x0000000000801c44                screen4
-                0x0000000000801c48                screen5
-                0x0000000000801c4c                clear
- .text          0x0000000000801c98        0x0 build/select.o
- .text          0x0000000000801c98       0x40 build/systemTimer.o
-                0x0000000000801c98                GetSystemTimerBase
-                0x0000000000801ca0                GetTimeStamp
-                0x0000000000801cb0                Wait
- .text          0x0000000000801cd8       0x74 build/tags.o
-                0x0000000000801cd8                FindTag
- .text          0x0000000000801d4c       0xa0 build/tank.o
-                0x0000000000801d4c                tank
-                0x0000000000801d74                tankMovement
-                0x0000000000801dcc                player_Xposition
-                0x0000000000801dd0                player_Yposition
-                0x0000000000801dd4                player_lives
-                0x0000000000801dd8                player_points
-                0x0000000000801ddc                player_special
- .text          0x0000000000801dec        0x0 build/tank_blue.o
- .text          0x0000000000801dec        0x0 build/tank_green.o
- .text          0x0000000000801dec        0x0 build/tank_red.o
- .text          0x0000000000801dec        0x0 build/tank_white.o
- .text          0x0000000000801dec      0x1e4 build/text.o
-                0x0000000000801dec                ReverseString
-                0x0000000000801e18                UnsignedString
-                0x0000000000801e68                SignedString
-                0x0000000000801e94                FormatString
- .text          0x0000000000801fd0        0x0 build/voyage.o
+                0x0000000000801c54                screen3
+                0x0000000000801c78                screenLoop
+                0x0000000000801c7c                screen4
+                0x0000000000801c80                screen5
+                0x0000000000801c84                clear
+ .text          0x0000000000801cd4        0x0 build/select.o
+ .text          0x0000000000801cd4       0x40 build/systemTimer.o
+                0x0000000000801cd4                GetSystemTimerBase
+                0x0000000000801cdc                GetTimeStamp
+                0x0000000000801cec                Wait
+ .text          0x0000000000801d14       0x74 build/tags.o
+                0x0000000000801d14                FindTag
+ .text          0x0000000000801d88       0xd8 build/tank.o
+                0x0000000000801d88                tank
+                0x0000000000801dd4                tankMovement
+                0x0000000000801e2c                player_Xposition
+                0x0000000000801e30                player_Yposition
+                0x0000000000801e34                player_lives
+                0x0000000000801e38                player_points
+                0x0000000000801e3c                player_special
+                0x0000000000801e40                selectedTank
+ .text          0x0000000000801e60        0x0 build/tank_blue.o
+ .text          0x0000000000801e60        0x0 build/tank_green.o
+ .text          0x0000000000801e60        0x0 build/tank_red.o
+ .text          0x0000000000801e60        0x0 build/tank_white.o
+ .text          0x0000000000801e60      0x1e4 build/text.o
+                0x0000000000801e60                ReverseString
+                0x0000000000801e8c                UnsignedString
+                0x0000000000801edc                SignedString
+                0x0000000000801f08                FormatString
+ .text          0x0000000000802044        0x0 build/voyage.o
 
 /DISCARD/
  *(*)

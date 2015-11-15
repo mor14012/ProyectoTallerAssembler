@@ -77,8 +77,26 @@ screen2:
 	mov r3, #0
 	bl DrawImageTransparency
 
+	screen2Cicle:
+		bl KeyboardUpdate
+		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
 
-	b screen2
+		cmp r0, #0
+		beq screen2Cicle
+		
+		cmp r0, #'r' 		
+		moveq r1, #1
+		cmp r0, #'v'
+		moveq r1, #2
+		cmp r0, #'a'
+		moveq r1, #3
+		cmp r0, #'b'
+		moveq r1, #4 	
+
+		ldr r2, =selectedTank
+		str r1, [r2]
+
+	b screen3
 
 @Pantalla de juego
 .globl screen3
@@ -126,3 +144,4 @@ clear:
 	ldr r3,=384
 	bl DrawRectangle
 	pop {pc}
+

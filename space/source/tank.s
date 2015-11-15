@@ -4,7 +4,20 @@ tank:
 
 	bl tankMovement
 
-	ldr r0, =tank_blue
+	ldr r0, =selectedTank
+	ldr r0, [r0]
+	cmp r0, #1
+	ldreq r0, =tank_red
+
+	cmp r0, #2
+	ldreq r0, =tank_green
+
+	cmp r0, #3
+	ldreq r0, =tank_blue
+
+	cmp r0, #4
+	ldreq r0, =tank_white
+
 	ldr r1, =player_Xposition
 	ldr r1, [r1]
 	ldr r2, =player_Yposition
@@ -67,3 +80,7 @@ player_points: .word 0
 
 .globl player_special
 player_special: .word 1
+
+.globl selectedTank
+selectedTank: .word 0
+
