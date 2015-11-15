@@ -2,14 +2,11 @@
 @------DrawImage-----
 @---Parametros de Entrada---
 @ R0: Matriz de la imagen
-@ R1: Ancho de la imagen
-@ R2: Alto de la imagen
-@ R3: Posicion en X 
-@ Stack: Posicion en Y 
+@ R1: Posicion en X 
+@ R2: Posicion en Y
 @--- Salidas ---
 
-DrawImage:
-	pop {r4} 					/*Se obtiene del stack la posicion en Y del alien a dibujar*/
+DrawImage:				
 	push {r4-r12, lr} 				
 
 	xCounter .req r5
@@ -21,10 +18,10 @@ DrawImage:
 	height .req r12
 
 	mov matrix, r0
-	ldrh width, [r1]
-	ldrh height, [r2]
-	mov xPosition, r3
-	mov yPosition, r4
+	ldrh width, [r0, #-2]
+	ldrh height, [r0, #-4]
+	mov xPosition, r1
+	mov yPosition, r2
 
 	position .req r7 								/*Contador para la matriz*/
 	mov position, #0

@@ -1,6 +1,8 @@
 .globl alien
 alien:
 	push {r11, r12, lr}
+	bl clear
+	
 	counter .req r12
 	state .req r11
 
@@ -21,45 +23,32 @@ alien:
 		spriteA:
 			cmp r0, #1
 			ldreq r0,=alien1_a
-			ldreq r1,=alien1_aWidth
-			ldreq r2,=alien1_aHeight
 			cmp r0, #2
 			ldreq r0,=alien2_a
-			ldreq r1,=alien2_aWidth
-			ldreq r2,=alien2_aHeight
 			cmp r0, #3
 			ldreq r0,=alien3_a
-			ldreq r1,=alien3_aWidth
-			ldreq r2,=alien3_aHeight
 
 			b DrawAlien
 
 		spriteB:
 			cmp r0, #1
 			ldreq r0,=alien1_b
-			ldreq r1,=alien1_bWidth
-			ldreq r2,=alien1_bHeight
 			cmp r0, #2
 			ldreq r0,=alien2_b
-			ldreq r1,=alien2_bWidth
-			ldreq r2,=alien2_bHeight
 			cmp r0, #3
 			ldreq r0,=alien3_b
-			ldreq r1,=alien3_bWidth
-			ldreq r2,=alien3_bHeight
 
 	UpdateAlienPosition:
-		ldr r3,=alienxPosition
-		ldr r4, [r3, counter]
-		add r4, #5
-		str r4, [r3, counter]
+		ldr r1,=alienxPosition
+		ldr r2, [r1, counter]
+		add r2, #5
+		str r2, [r1, counter]
 
 	DrawAlien: 							
-		ldr r3,=alienxPosition
-		ldr r3, [r3, counter]
-		ldr r4,=alienyPosition
-		ldr r4, [r4, counter]
-		push {r4}
+		ldr r1,=alienxPosition
+		ldr r1, [r1, counter]
+		ldr r2,=alienyPosition
+		ldr r2, [r2, counter]
 		bl DrawImage
 
 	add counter, #4
@@ -74,8 +63,6 @@ alien:
 		cmp r1, #0
 		streq r3, [r0]
 		strne r2, [r0]
-
-	bl clear
 
 	pop {r11, r12, pc}
 

@@ -115,70 +115,70 @@ LOAD build/text.o
  .init          0x0000000000008000        0x4 build/main.o
                 0x0000000000008000                _start
 
-.text           0x0000000000008004      0xb88
+.text           0x0000000000008004      0xb20
  *(.text)
- .text          0x0000000000008004       0x60 build/DrawImage.o
+ .text          0x0000000000008004       0x5c build/DrawImage.o
                 0x0000000000008004                DrawImage
- .text          0x0000000000008064      0x1f8 build/alien.o
-                0x0000000000008064                alien
- .text          0x000000000000825c        0x0 build/alien1_a.o
- .text          0x000000000000825c        0x0 build/alien1_b.o
- .text          0x000000000000825c        0x0 build/alien2_a.o
- .text          0x000000000000825c        0x0 build/alien2_b.o
- .text          0x000000000000825c        0x0 build/alien3_a.o
- .text          0x000000000000825c        0x0 build/alien3_b.o
- .text          0x000000000000825c      0x1d4 build/drawing.o
-                0x000000000000825c                SetForeColour
-                0x0000000000008274                SetGraphicsAddress
-                0x0000000000008280                DrawPixel
-                0x00000000000082c8                DrawLine
-                0x0000000000008344                DrawCharacter
-                0x00000000000083b0                DrawString
- .text          0x0000000000008430      0x278 build/figuras.o
-                0x0000000000008430                DrawCircle
-                0x0000000000008590                DrawRectangle
-                0x00000000000085cc                DrawTriangle
-                0x0000000000008614                DrawTriangleI
-                0x0000000000008660                DrawTriangleRectangle
- .text          0x00000000000086a8       0x60 build/frameBuffer.o
-                0x00000000000086a8                InitialiseFrameBuffer
- .text          0x0000000000008708       0x98 build/gpio.o
-                0x0000000000008708                GetGpioAddress
-                0x0000000000008710                SetGpioFunction
-                0x0000000000008760                SetGpio
- .text          0x00000000000087a0       0x6c build/mailbox.o
-                0x00000000000087a0                GetMailboxBase
-                0x00000000000087a8                MailboxRead
-                0x00000000000087dc                MailboxWrite
- .text          0x000000000000880c       0x48 build/main.o
- .text          0x0000000000008854       0x48 build/maths.o
-                0x0000000000008854                DivideU32
- .text          0x000000000000889c       0x18 build/random.o
-                0x000000000000889c                Random
- .text          0x00000000000088b4       0x40 build/screen.o
-                0x00000000000088b4                screen1
-                0x00000000000088bc                screen2
-                0x00000000000088c4                screen3
-                0x00000000000088c8                screen4
-                0x00000000000088cc                screen5
-                0x00000000000088d0                clear
- .text          0x00000000000088f4       0x40 build/systemTimer.o
-                0x00000000000088f4                GetSystemTimerBase
-                0x00000000000088fc                GetTimeStamp
-                0x000000000000890c                Wait
- .text          0x0000000000008934       0x74 build/tags.o
-                0x0000000000008934                FindTag
- .text          0x00000000000089a8        0x0 build/tank.o
-                0x00000000000089a8                tank
- .text          0x00000000000089a8        0x0 build/tank_blue.o
- .text          0x00000000000089a8        0x0 build/tank_green.o
- .text          0x00000000000089a8        0x0 build/tank_red.o
- .text          0x00000000000089a8        0x0 build/tank_white.o
- .text          0x00000000000089a8      0x1e4 build/text.o
-                0x00000000000089a8                ReverseString
-                0x00000000000089d4                UnsignedString
-                0x0000000000008a24                SignedString
-                0x0000000000008a50                FormatString
+ .text          0x0000000000008060      0x194 build/alien.o
+                0x0000000000008060                alien
+ .text          0x00000000000081f4        0x0 build/alien1_a.o
+ .text          0x00000000000081f4        0x0 build/alien1_b.o
+ .text          0x00000000000081f4        0x0 build/alien2_a.o
+ .text          0x00000000000081f4        0x0 build/alien2_b.o
+ .text          0x00000000000081f4        0x0 build/alien3_a.o
+ .text          0x00000000000081f4        0x0 build/alien3_b.o
+ .text          0x00000000000081f4      0x1d4 build/drawing.o
+                0x00000000000081f4                SetForeColour
+                0x000000000000820c                SetGraphicsAddress
+                0x0000000000008218                DrawPixel
+                0x0000000000008260                DrawLine
+                0x00000000000082dc                DrawCharacter
+                0x0000000000008348                DrawString
+ .text          0x00000000000083c8      0x278 build/figuras.o
+                0x00000000000083c8                DrawCircle
+                0x0000000000008528                DrawRectangle
+                0x0000000000008564                DrawTriangle
+                0x00000000000085ac                DrawTriangleI
+                0x00000000000085f8                DrawTriangleRectangle
+ .text          0x0000000000008640       0x60 build/frameBuffer.o
+                0x0000000000008640                InitialiseFrameBuffer
+ .text          0x00000000000086a0       0x98 build/gpio.o
+                0x00000000000086a0                GetGpioAddress
+                0x00000000000086a8                SetGpioFunction
+                0x00000000000086f8                SetGpio
+ .text          0x0000000000008738       0x6c build/mailbox.o
+                0x0000000000008738                GetMailboxBase
+                0x0000000000008740                MailboxRead
+                0x0000000000008774                MailboxWrite
+ .text          0x00000000000087a4       0x48 build/main.o
+ .text          0x00000000000087ec       0x48 build/maths.o
+                0x00000000000087ec                DivideU32
+ .text          0x0000000000008834       0x18 build/random.o
+                0x0000000000008834                Random
+ .text          0x000000000000884c       0x40 build/screen.o
+                0x000000000000884c                screen1
+                0x0000000000008854                screen2
+                0x000000000000885c                screen3
+                0x0000000000008860                screen4
+                0x0000000000008864                screen5
+                0x0000000000008868                clear
+ .text          0x000000000000888c       0x40 build/systemTimer.o
+                0x000000000000888c                GetSystemTimerBase
+                0x0000000000008894                GetTimeStamp
+                0x00000000000088a4                Wait
+ .text          0x00000000000088cc       0x74 build/tags.o
+                0x00000000000088cc                FindTag
+ .text          0x0000000000008940        0x0 build/tank.o
+                0x0000000000008940                tank
+ .text          0x0000000000008940        0x0 build/tank_blue.o
+ .text          0x0000000000008940        0x0 build/tank_green.o
+ .text          0x0000000000008940        0x0 build/tank_red.o
+ .text          0x0000000000008940        0x0 build/tank_white.o
+ .text          0x0000000000008940      0x1e4 build/text.o
+                0x0000000000008940                ReverseString
+                0x000000000000896c                UnsignedString
+                0x00000000000089bc                SignedString
+                0x00000000000089e8                FormatString
 
 .data           0x0000000000009000    0x21044
  *(.data)
