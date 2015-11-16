@@ -10,9 +10,14 @@ alien:
 	CheckAlien:
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
+		
+		cmp counter, #60
+		beq screen1
+
 		cmp r0, #0
 		addeq counter, #4
 		beq CheckAlien
+
 	LoadAlien:
 		ldr state, =State
 		ldr state, [r11]
@@ -43,9 +48,9 @@ alien:
 		mov r1, r0
 		ldr r0,=mann
 		ldr r2,=alienxPosition
-		ldr r2, [r2]
+		ldr r2, [r2, counter]
 		ldr r3,=alienyPosition
-		ldr r3, [r3]
+		ldr r3, [r3, counter]
 		bl DrawBackground
 		pop {r0}
 
@@ -106,9 +111,11 @@ alien:
 State:
 	.word 0
 
+.globl alienAlive
 alienAlive:
 	.word 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3
 
+.globl alienxPosition
 alienxPosition:
 	.word 12, 137, 262, 387, 512, 29, 154, 279, 404, 519, 12, 137, 262, 387, 512
 

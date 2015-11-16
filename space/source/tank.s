@@ -28,7 +28,7 @@ tank:
 
 	pop {pc}
 
-.globl tankMovement
+
 tankMovement:
 
 	push {lr}
@@ -39,6 +39,9 @@ tankMovement:
 	bleq leftMove
 	cmp r0, #'d' 	
 	bleq rightMove
+	cmp r0, #'s' 	
+	bleq collision
+
 	pop {pc}
 
 leftMove:
@@ -54,14 +57,14 @@ leftMove:
 
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
-	sub r2, #10
+	sub r2, #30
 	cmp r2, #0
 	movlt r2, #0
 
 	str r2, [r1]
 
 	pop {pc}
-	mov pc, lr
+
 
 
 rightMove:
@@ -77,15 +80,75 @@ rightMove:
 
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
-	add r2, #10
-	cmp r2, #1004
-	movgt r2, #1004
+	add r2, #30
+	cmp r2, #904
+	movgt r2, #904
 
 	str r2, [r1]
 
 	pop {pc}
 	
-	mov pc, lr
+collision:
+	push {r12, lr}
+
+	ccounter .req r12 		
+	mov ccounter, #0
+
+	ldr r0, =player_Xposition
+	ldr r0, [r0]
+	ldr r1, =tank_whiteWidth
+	ldrh r1, [r1]
+	lsr r1, #1
+	add r0, r1 		
+
+
+	collisionAlien:
+		ldr r1, =alienxPosition
+		ldr r1, [r1, ccounter]
+
+		ldr r2, =alienAlive
+		ldr r2, [r2, ccounter]
+
+		cmp ccounter, #60
+		popeq {r12, pc}
+
+		teq r2, #0
+		addeq ccounter, #4
+		beq collisionAlien
+
+		teq r2, #1
+		ldreq r3, =alien1_aWidth
+
+		teq r2, #2
+		ldreq r3, =alien2_aWidth
+
+		teq r2, #3
+		ldreq r3, =alien3_aWidth
+
+		ldrh r3, [r3]
+		add r3, r1 	
+@@ R0: centro del canon
+@@ R1: Posicion X del alien
+@@ R3: Posicion X del alien mas el Width
+		cmp r0, r1
+		blt cicleEnd
+		cmpge r0, r3
+		movle r2, #0
+		ldreq r0, =1000000
+		bleq Wait
+
+		cicleEnd:
+			ldr r1, =alienAlive
+			str r2, [r1, ccounter]
+
+			add ccounter, #4
+			cmp ccounter, #60
+			bne collisionAlien
+	
+	.unreq ccounter
+
+	pop {r12, pc}
+
 
 .globl player_Xposition
 player_Xposition: .word 452
