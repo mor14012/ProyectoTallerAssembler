@@ -42,6 +42,7 @@ tankMovement:
 	pop {pc}
 
 leftMove:
+	push {lr}
 	ldr r0,=mann
 	ldr r1,=tank_white
 	ldr r2,=player_Xposition
@@ -59,10 +60,12 @@ leftMove:
 
 	str r2, [r1]
 
+	pop {pc}
 	mov pc, lr
 
 
 rightMove:
+	push {lr}
 	ldr r0,=mann
 	ldr r1,=tank_white
 	ldr r2,=player_Xposition
@@ -79,6 +82,8 @@ rightMove:
 	movgt r2, #1004
 
 	str r2, [r1]
+
+	pop {pc}
 	
 	mov pc, lr
 
