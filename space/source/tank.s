@@ -134,12 +134,11 @@ collision:
 		blt cicleEnd
 		cmpge r0, r3
 		movle r2, #0
-		ldreq r0, =1000000
-		bleq Wait
 
 		cicleEnd:
 			ldr r1, =alienAlive
 			str r2, [r1, ccounter]
+			pople {r12, pc}
 
 			add ccounter, #4
 			cmp ccounter, #60

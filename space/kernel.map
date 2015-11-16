@@ -425,7 +425,7 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000801070       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x00000000008010a4     0x10c4
+.text           0x00000000008010a4     0x10bc
  *.c.o(.text)
  *(.text)
  .text          0x00000000008010a4      0x140 build/DrawImage.o
@@ -492,24 +492,24 @@ LOAD ./libcsud.a
                 0x0000000000801d14                Wait
  .text          0x0000000000801d3c       0x74 build/tags.o
                 0x0000000000801d3c                FindTag
- .text          0x0000000000801db0      0x1d4 build/tank.o
+ .text          0x0000000000801db0      0x1cc build/tank.o
                 0x0000000000801db0                tank
-                0x0000000000801f30                player_Xposition
-                0x0000000000801f34                player_Yposition
-                0x0000000000801f38                player_lives
-                0x0000000000801f3c                player_points
-                0x0000000000801f40                player_special
-                0x0000000000801f44                selectedTank
- .text          0x0000000000801f84        0x0 build/tank_blue.o
- .text          0x0000000000801f84        0x0 build/tank_green.o
- .text          0x0000000000801f84        0x0 build/tank_red.o
- .text          0x0000000000801f84        0x0 build/tank_white.o
- .text          0x0000000000801f84      0x1e4 build/text.o
-                0x0000000000801f84                ReverseString
-                0x0000000000801fb0                UnsignedString
-                0x0000000000802000                SignedString
-                0x000000000080202c                FormatString
- .text          0x0000000000802168        0x0 build/voyage.o
+                0x0000000000801f2c                player_Xposition
+                0x0000000000801f30                player_Yposition
+                0x0000000000801f34                player_lives
+                0x0000000000801f38                player_points
+                0x0000000000801f3c                player_special
+                0x0000000000801f40                selectedTank
+ .text          0x0000000000801f7c        0x0 build/tank_blue.o
+ .text          0x0000000000801f7c        0x0 build/tank_green.o
+ .text          0x0000000000801f7c        0x0 build/tank_red.o
+ .text          0x0000000000801f7c        0x0 build/tank_white.o
+ .text          0x0000000000801f7c      0x1e4 build/text.o
+                0x0000000000801f7c                ReverseString
+                0x0000000000801fa8                UnsignedString
+                0x0000000000801ff8                SignedString
+                0x0000000000802024                FormatString
+ .text          0x0000000000802160        0x0 build/voyage.o
 
 /DISCARD/
  *(*)
