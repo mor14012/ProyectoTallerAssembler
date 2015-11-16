@@ -8,7 +8,6 @@ alien:
 	mov counter, #0
 
 	CheckAlien:
-
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
 		cmp r0, #0
@@ -38,6 +37,17 @@ alien:
 			ldreq r0,=alien2_b
 			cmp r0, #3
 			ldreq r0,=alien3_b
+
+	EraseOldAlien:
+		push {r0}
+		mov r1, r0
+		ldr r0,=mann
+		ldr r2,=alienxPosition
+		ldr r2, [r2]
+		ldr r3,=alienyPosition
+		ldr r3, [r3]
+		bl DrawBackground
+		pop {r0}
 
 	UpdateAlienXPosition:
 		ldr r1,=alienxPosition
