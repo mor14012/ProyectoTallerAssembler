@@ -86,7 +86,7 @@ leftMove:
 
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
-	sub r2, #30
+	sub r2, #40
 	cmp r2, #0
 	movlt r2, #0
 
@@ -109,7 +109,7 @@ rightMove:
 
 	ldr r1, =player_Xposition
 	ldr r2, [r1]
-	add r2, #30
+	add r2, #40
 	cmp r2, #904
 	movgt r2, #904
 

@@ -12,10 +12,9 @@ screen1:
 
 		teq r0, #'j' 		
 		beq screen2
-		teq r0, #'i' 	
-		beq screen5
-		teq r0, #'s'
-		beq screenLoop
+		@teq r0, #'i' 	
+		@beq screen5
+		@teq r0, #'s'
 
 		b screen1Cicle
 	
@@ -58,11 +57,10 @@ screen2:
 
 	screen2Cicle:
 		bl KeyboardUpdate
-		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
-		
-		teq r0, #' '
-		beq screen2Cicle
+		bl KeyboardGetChar 			
 
+		mov r1, #0
+		
 		teq r0, #'r' 		
 		moveq r1, #1
 		teq r0, #'v'
@@ -72,7 +70,9 @@ screen2:
 		teq r0, #'b'
 		moveq r1, #4 	
 
-		cmp r1, #0
+		teq r1, #0
+		beq screen2Cicle
+
 		ldrne r2, =selectedTank
 		strne r1, [r2]
 
@@ -83,22 +83,27 @@ screen2:
 screen3:
 	ldr r0, =mann
 	mov r1, #0
-	mov r2, #1
+	@aqui habia un 1 por alguna razon. abajo
+	mov r2, #0
 	bl DrawImage 		
 	screen3Cicle:
-		bl tank 		
+		 		
 		bl alien
-		b screen3Cicle
 
-@Salida
-.globl screenLoop
-screenLoop:
-	
-	b screenLoop
+		bl tank
+
+		ldr r0,=50000
+		bl Wait
+		
+		b screen3Cicle
 
 @Pantalla de resultados
 .globl screen4
 screen4:
+	ldr r0,=gameover
+	mov r1, #0
+	mov r2, #0
+	bl DrawImage
 	
 	b screen4
 

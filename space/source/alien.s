@@ -11,8 +11,9 @@ alien:
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
 		
+		@@**********BUG************
 		cmp counter, #-4
-		beq screen1
+		beq CheckWin
 
 		cmp r0, #0
 		subeq counter, #4
@@ -21,7 +22,7 @@ alien:
 	LoadAlien:
 		ldr state, =State
 		ldr state, [r11]
-		and state, #0b000001
+		and state, #0b0000001
 		cmp state, #0
 		bne spriteB 	
 		
@@ -80,7 +81,7 @@ alien:
 		ldr r2, [r2, counter]
 		ldr r3, =0
 		bl DrawImageTransparency
-
+	
 	sub counter, #4
 	cmp counter, #-4
 	bne CheckAlien
@@ -93,19 +94,40 @@ alien:
 		moveq r1, #0
 		str r1, [r0]
 
+	CheckGameOver:
+		mov r0, #0
+		ldr r1,=alienyPosition
+		ldr r2,=650
+		CheckGameOverCicle:
+			ldr r3, [r1, r0]
+			cmp r3, r2
+			bge screen4
+			add r0, #4
+			cmp r0, #60
+			bne CheckGameOverCicle
 
+	CheckWin:
+		mov r0, #0
+		ldr r1, =alienAlive
+		CheckWinCicle:
+			ldr r2, [r1, r0]
+			cmp r2, #0
+			bne alienEnd
+			add r0, #4
+			cmp r0, #60
+			beq screen1
+			b CheckWinCicle
+
+	alienEnd:
 	pop {r11, r12, pc}
 
 	UpdateAlienYPosition:
 		push {r0, r1}
-
 		ldr r0, =alienyPosition
 		ldr r1, [r0, counter]
 		add r1, #100
 		str r1, [r0, counter]
-
 		pop {r0, r1}
-
 		mov pc, lr
 
 State:
