@@ -92,7 +92,7 @@ collision:
 	push {r12, lr}
 
 	ccounter .req r12 		
-	mov ccounter, #0
+	mov ccounter, #56
 
 	ldr r0, =player_Xposition
 	ldr r0, [r0]
@@ -101,7 +101,6 @@ collision:
 	lsr r1, #1
 	add r0, r1 		
 
-
 	collisionAlien:
 		ldr r1, =alienxPosition
 		ldr r1, [r1, ccounter]
@@ -109,11 +108,11 @@ collision:
 		ldr r2, =alienAlive
 		ldr r2, [r2, ccounter]
 
-		cmp ccounter, #60
+		cmp ccounter, #-4
 		popeq {r12, pc}
 
 		teq r2, #0
-		addeq ccounter, #4
+		subeq ccounter, #4
 		beq collisionAlien
 
 		teq r2, #1
@@ -138,10 +137,20 @@ collision:
 		cicleEnd:
 			ldr r1, =alienAlive
 			str r2, [r1, ccounter]
-			pople {r12, pc}
+			cmp r2, #0
+			ldreq r0, =mann
+			ldreq r1, =alien3_a
+			ldreq r2, =alienxPosition
+			ldreq r2, [r2, ccounter]
+			ldreq r3, =alienyPosition
+			ldreq r3, [r3, ccounter]
+			pusheq {lr}
+			bleq DrawBackground
+			popeq {lr}
+			popeq {r12, pc}
 
-			add ccounter, #4
-			cmp ccounter, #60
+			sub ccounter, #4
+			cmp ccounter, #-4
 			bne collisionAlien
 	
 	.unreq ccounter

@@ -5,17 +5,17 @@ alien:
 	counter .req r12
 	state .req r11
 
-	mov counter, #0
+	mov counter, #56
 
 	CheckAlien:
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
 		
-		cmp counter, #60
+		cmp counter, #-4
 		beq screen1
 
 		cmp r0, #0
-		addeq counter, #4
+		subeq counter, #4
 		beq CheckAlien
 
 	LoadAlien:
@@ -81,8 +81,8 @@ alien:
 		ldr r3, =0
 		bl DrawImageTransparency
 
-	add counter, #4
-	cmp counter, #60
+	sub counter, #4
+	cmp counter, #-4
 	bne CheckAlien
 
 	UpdateAlienState:
@@ -110,7 +110,7 @@ alien:
 
 State:
 	.word 0
-
+	
 .globl alienAlive
 alienAlive:
 	.word 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3
@@ -119,5 +119,6 @@ alienAlive:
 alienxPosition:
 	.word 12, 137, 262, 387, 512, 29, 154, 279, 404, 519, 12, 137, 262, 387, 512
 
+.globl alienyPosition
 alienyPosition:
 	.word 50, 50, 50, 50, 50, 150, 150, 150, 150, 150, 250, 250, 250, 250, 250
