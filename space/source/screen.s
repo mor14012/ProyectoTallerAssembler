@@ -7,18 +7,17 @@ screen1:
 	bl DrawImage
 
 	screen1ciclo:
-	
-		bl KeyboardUpdate
-		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
+			bl KeyboardUpdate
+			bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
 
 		cmp r0, #'j' 		
-		bleq screen2
+		beq screen2
 		cmp r0, #'i' 	
-		bleq screen5
+		beq screen5
 		cmp r0, #'s'
 		beq screenLoop
 
-		mov r0, #0
+		mov r0, #' '
 		b screen1ciclo
 	
 	b screen1
@@ -61,10 +60,9 @@ screen2:
 	screen2Cicle:
 		bl KeyboardUpdate
 		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
-
-		cmp r0, #0
-		beq screen2Cicle
 		
+		mov r1, #0
+
 		cmp r0, #'r' 		
 		moveq r1, #1
 		cmp r0, #'v'
@@ -74,10 +72,11 @@ screen2:
 		cmp r0, #'b'
 		moveq r1, #4 	
 
-		ldr r2, =selectedTank
-		str r1, [r2]
+		cmp r1, #0
+		ldrne r2, =selectedTank
+		strne r1, [r2]
 
-	b screen3
+		b screen3
 
 @Pantalla de juego
 .globl screen3
@@ -108,17 +107,4 @@ screen4:
 screen5:
 	
 	b screen5
-
-.globl clear
-clear:
-	push {lr}
-	mov r0, #0
-	bl SetForeColour
-	
-	mov r0,#0
-	mov r1,#0
-	ldr r2,=1024
-	ldr r3,=384
-	bl DrawRectangle
-	pop {pc}
 
