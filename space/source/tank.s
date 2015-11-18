@@ -1,3 +1,24 @@
+@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+@-----------MACROS-----------
+@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+@ -----------SetWrite----------
+@ Permite encender o apagar
+@ un pin (led) especifico.
+@-----Parametros de Entrada--
+@ 	pin: Numero de pin
+@ 	value: 1=High 0=Low
+@-----Parametros de Salida---
+@ Enciende o apaga el pin
+@ seleccionado
+@----------------------------
+.globl SetWrite
+.macro SetWrite pin, value
+	mov r0, \pin
+	mov r1, \value
+	bl SetGpio
+.endm
+
 .globl tank
 tank:
 	push {lr}
@@ -41,6 +62,14 @@ tankMovement:
 	bleq rightMove
 	cmp r0, #'s' 	
 	bleq collision
+	
+	@@GPIO Button
+	ldr r0, =Button
+	ldr r0, [r0]
+	bl GetGpio
+
+	cmp r0, #0
+	blne specialPower
 
 	pop {pc}
 
@@ -156,6 +185,86 @@ collision:
 	.unreq ccounter
 
 	pop {r12, pc}
+
+specialPower:
+	push {r12, lr}	
+	ldr r0, =player_special
+	ldr r1, [r0]
+	teq r1, #0 			@verificacion
+	popeq {r12, pc}
+
+	mov r1, #0
+	str r1, [r0]
+
+	ccounter .req r12 		
+	mov ccounter, #56
+
+	ldr r0, =player_Xposition
+	ldr r0, [r0]
+	ldr r1, =tank_whiteWidth
+	ldrh r1, [r1]
+	lsr r1, #1
+	add r0, r1 		
+
+	collisionAlienSpecial:
+		ldr r1, =alienxPosition
+		ldr r1, [r1, ccounter]
+
+		ldr r2, =alienAlive
+		ldr r2, [r2, ccounter]
+
+		cmp ccounter, #-4
+		popeq {r12, pc}
+
+		teq r2, #0
+		subeq ccounter, #4
+		beq collisionAlienSpecial
+
+		teq r2, #1
+		ldreq r3, =alien1_aWidth
+
+		teq r2, #2
+		ldreq r3, =alien2_aWidth
+
+		teq r2, #3
+		ldreq r3, =alien3_aWidth
+
+		ldrh r3, [r3]
+		add r3, r1 	
+@@ R0: centro del canon
+@@ R1: Posicion X del alien
+@@ R3: Posicion X del alien mas el Width
+		cmp r0, r1
+		blt cicleEndSpecial
+		cmpge r0, r3
+		movle r2, #0
+
+		cicleEndSpecial:
+			ldr r1, =alienAlive
+			str r2, [r1, ccounter]
+			cmp r2, #0
+			push {r0}
+			ldreq r0, =mann
+			ldreq r1, =alien3_a
+			ldreq r2, =alienxPosition
+			ldreq r2, [r2, ccounter]
+			ldreq r3, =alienyPosition
+			ldreq r3, [r3, ccounter]
+			bleq DrawBackground
+			pop {r0}
+
+			sub ccounter, #4
+			cmp ccounter, #-4
+			bne collisionAlienSpecial
+	
+	ldr r0,=Led
+	ldr r0, [r0]
+	SetWrite r0, #0
+
+	.unreq ccounter
+
+	pop {r12, pc}
+
 
 
 .globl player_Xposition

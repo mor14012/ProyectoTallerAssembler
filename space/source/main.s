@@ -12,6 +12,7 @@
 @ Enciende o apaga el pin
 @ seleccionado
 @----------------------------
+.globl SetWrite
 .macro SetWrite pin, value
 	mov r0, \pin
 	mov r1, \value
@@ -68,10 +69,17 @@ main:
 
 	noError$:
 
-	fbInfoAddr .req r4
-	mov fbInfoAddr,r0
-
 	bl SetGraphicsAddress
+
+	ldr r4, =Button
+	ldr r4, [r4]
+	ldr r5, =Led
+	ldr r5, [r5]
+
+	SetIO r4, #0
+	SetIO r5, #1
+
+	SetWrite r5, #1
 
 	bl UsbInitialise
 	
@@ -80,3 +88,10 @@ main:
 loop$:
 
 	b loop$
+
+.section .data
+.globl Button, Led
+Button:
+	.word 8
+Led:
+	.word 11

@@ -1,23 +1,3 @@
-@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-@-----------MACROS-----------
-@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
-@ -----------SetWrite----------
-@ Permite encender o apagar
-@ un pin (led) especifico.
-@-----Parametros de Entrada--
-@ 	pin: Numero de pin
-@ 	value: 1=High 0=Low
-@-----Parametros de Salida---
-@ Enciende o apaga el pin
-@ seleccionado
-@----------------------------
-.macro SetWrite pin, value
-	mov r0, \pin
-	mov r1, \value
-	bl SetGpio
-.endm
-
 @Pantalla de Inicio
 .globl screen1
 screen1:
@@ -35,9 +15,10 @@ screen1:
 		bleq screen2
 		cmp r0, #'i' 	
 		bleq screen5
-
 		cmp r0, #'s'
 		beq screenLoop
+
+		mov r0, #0
 		b screen1ciclo
 	
 	b screen1
