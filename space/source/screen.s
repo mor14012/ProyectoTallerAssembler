@@ -6,19 +6,18 @@ screen1:
 	mov r2, #0
 	bl DrawImage
 
-	screen1ciclo:
+	screen1Cicle:
 			bl KeyboardUpdate
 			bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
 
-		cmp r0, #'j' 		
+		teq r0, #'j' 		
 		beq screen2
-		cmp r0, #'i' 	
+		teq r0, #'i' 	
 		beq screen5
-		cmp r0, #'s'
+		teq r0, #'s'
 		beq screenLoop
 
-		mov r0, #' '
-		b screen1ciclo
+		b screen1Cicle
 	
 	b screen1
 
@@ -61,15 +60,16 @@ screen2:
 		bl KeyboardUpdate
 		bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
 		
-		mov r1, #0
+		teq r0, #' '
+		beq screen2Cicle
 
-		cmp r0, #'r' 		
+		teq r0, #'r' 		
 		moveq r1, #1
-		cmp r0, #'v'
+		teq r0, #'v'
 		moveq r1, #2
-		cmp r0, #'a'
+		teq r0, #'a'
 		moveq r1, #3
-		cmp r0, #'b'
+		teq r0, #'b'
 		moveq r1, #4 	
 
 		cmp r1, #0
@@ -93,7 +93,7 @@ screen3:
 @Salida
 .globl screenLoop
 screenLoop:
-	//Pintar cuadrado negro
+	
 	b screenLoop
 
 @Pantalla de resultados
