@@ -138,16 +138,32 @@ screen3:
 .globl screen4
 screen4:
 	screenGameOver: 			@Si perdio se carga este fondo
-	ldr r0,=gameover
-	b screen4Draw 	
-	
-	screenWin: 					@Si gana se carga este fondo (y la medalla respectiva)
-	ldr r0,=win
-
-	screen4Draw:
+		ldr r0,=gameover
 		mov r1, #0
 		mov r2, #0
 		bl DrawImage
+		b screen4Cicle	
+	
+	screenWin: 					@Si gana se carga este fondo (y la medalla respectiva)
+		ldr r0,=win
+		mov r1, #0
+		mov r2, #0
+		bl DrawImage
+
+		@@NEW POINTS AND BADGES
+		ldr r1, =player_points
+		ldr r1, [r1]
+		cmp r1, #4
+		ldrle r0,=bronze
+		cmp r1, #3
+		ldrle r0,=silver
+		cmp r1, #2
+		ldrle r0,=gold
+
+		ldr r1,=392
+		ldr r2,=384
+		bl DrawImageTransparency
+
 
 		screen4Cicle:
 			b screen4Cicle
@@ -155,6 +171,9 @@ screen4:
 @Pantalla de instrucciones
 .globl screen5
 screen5:
-	
+	ldr r0,=instructions
+	mov r1, #0
+	mov r2, #0
+	bl DrawImage
 	b screen5
 

@@ -126,6 +126,11 @@ alien:
 		ldr r1, [r0, counter]
 		add r1, #100
 		str r1, [r0, counter]
+
+		ldr r0,=player_points
+		ldr r1, [r0]
+		add r1, #1
+		str r1, [r0] 
 		pop {r0, r1}
 		mov pc, lr
 

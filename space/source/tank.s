@@ -286,9 +286,6 @@ player_Xposition: .word 452
 player_Yposition: .word 700
 
 
-.globl player_lives
-player_lives: .word 3
-
 .globl player_points
 player_points: .word 0
 
@@ -297,4 +294,3 @@ player_special: .word 1
 
 .globl selectedTank
 selectedTank: .word 0
-
