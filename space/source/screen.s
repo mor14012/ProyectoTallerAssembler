@@ -71,6 +71,19 @@ screen2:
 	bl DrawImageTransparency
 
 	screen2Cicle:
+		ldr r1,=FirstStepCounter
+		ldr r2, [r1]
+		add r2, #4
+		teq r2, #68
+		moveq r2, #0
+		ldr r1,=FirstStepCounter
+		str r2, [r1]
+
+		ldr r0,=FirstStep
+		ldr r0, [r0, r2]
+		mov r1, #230
+		bl buzzer
+
 		bl KeyboardUpdate
 		bl KeyboardGetChar 			
 
@@ -124,12 +137,20 @@ screen3:
 @Pantalla de resultados
 .globl screen4
 screen4:
+	screenGameOver: 			@Si perdio se carga este fondo
 	ldr r0,=gameover
-	mov r1, #0
-	mov r2, #0
-	bl DrawImage
+	b screen4Draw 	
 	
-	b screen4
+	screenWin: 					@Si gana se carga este fondo (y la medalla respectiva)
+	ldr r0,=win
+
+	screen4Draw:
+		mov r1, #0
+		mov r2, #0
+		bl DrawImage
+
+		screen4Cicle:
+			b screen4Cicle
 
 @Pantalla de instrucciones
 .globl screen5
