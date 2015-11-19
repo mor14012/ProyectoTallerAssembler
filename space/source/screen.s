@@ -222,7 +222,7 @@ screen6:
 		ldr r2,=352
 		bl DrawImage
 
-		ld r0,=500000
+		ldr r0,=500000
 		bl Wait
 		
 		ldr r0,=alien1_b

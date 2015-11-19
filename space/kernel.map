@@ -58,9 +58,9 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/drawing.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/drawing.o
- .bss           0x0000000000000000        0x0 build/figuras.o
+ .bss           0x0000000000000000        0x0 build/figures.o
  .ARM.attributes
-                0x0000000000000000       0x14 build/figuras.o
+                0x0000000000000000       0x14 build/figures.o
  .bss           0x0000000000000000        0x0 build/frameBuffer.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/frameBuffer.o
@@ -169,7 +169,7 @@ LOAD build/alien3_a.o
 LOAD build/alien3_b.o
 LOAD build/bronze.o
 LOAD build/drawing.o
-LOAD build/figuras.o
+LOAD build/figures.o
 LOAD build/frameBuffer.o
 LOAD build/gameover.o
 LOAD build/gold.o
@@ -242,7 +242,7 @@ LOAD ./libcsud.a
  *fill*         0x000000000003f2dc        0x4 
  .data          0x000000000003f2e0   0x1cb810 build/drawing.o
                 0x000000000003f2e4                graphicsAddress
- .data          0x000000000020aaf0        0x0 build/figuras.o
+ .data          0x000000000020aaf0        0x0 build/figures.o
  *fill*         0x000000000020aaf0      0x510 
  .data          0x000000000020b000     0x1000 build/frameBuffer.o
                 0x000000000020b000                FrameBufferInfo
@@ -508,111 +508,108 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000d0c658       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x0000000000d0c68c     0x1b0c
+.text           0x0000000000d0c68c     0x1920
  *.c.o(.text)
  *(.text)
- .text          0x0000000000d0c68c      0x140 build/DrawImage.o
+ .text          0x0000000000d0c68c      0x13c build/DrawImage.o
                 0x0000000000d0c68c                DrawImage
                 0x0000000000d0c6e8                DrawImageTransparency
                 0x0000000000d0c750                DrawBackground
- .text          0x0000000000d0c7cc      0x264 build/alien.o
-                0x0000000000d0c7cc                alien
-                0x0000000000d0c948                alienAlive
-                0x0000000000d0c984                alienxPosition
-                0x0000000000d0c9c0                alienyPosition
- .text          0x0000000000d0ca30        0x0 build/alien1_a.o
- .text          0x0000000000d0ca30        0x0 build/alien1_b.o
- .text          0x0000000000d0ca30        0x0 build/alien2_a.o
- .text          0x0000000000d0ca30        0x0 build/alien2_b.o
- .text          0x0000000000d0ca30        0x0 build/alien3_a.o
- .text          0x0000000000d0ca30        0x0 build/alien3_b.o
- .text          0x0000000000d0ca30        0x0 build/bronze.o
- .text          0x0000000000d0ca30      0x1dc build/drawing.o
-                0x0000000000d0ca30                SetForeColour
-                0x0000000000d0ca48                SetGraphicsAddress
-                0x0000000000d0ca54                DrawPixel
-                0x0000000000d0caa0                DrawLine
-                0x0000000000d0cb1c                DrawCharacter
-                0x0000000000d0cb88                DrawString
- .text          0x0000000000d0cc0c      0x278 build/figuras.o
-                0x0000000000d0cc0c                DrawCircle
-                0x0000000000d0cd6c                DrawRectangle
-                0x0000000000d0cda8                DrawTriangle
-                0x0000000000d0cdf0                DrawTriangleI
-                0x0000000000d0ce3c                DrawTriangleRectangle
- .text          0x0000000000d0ce84       0x60 build/frameBuffer.o
-                0x0000000000d0ce84                InitialiseFrameBuffer
- .text          0x0000000000d0cee4        0x0 build/gameover.o
- .text          0x0000000000d0cee4        0x0 build/gold.o
- .text          0x0000000000d0cee4       0xb8 build/gpio.o
-                0x0000000000d0cee4                GetGpioAddress
-                0x0000000000d0ceec                SetGpioFunction
-                0x0000000000d0cf3c                SetGpio
-                0x0000000000d0cf78                GetGpio
- .text          0x0000000000d0cf9c        0x0 build/instructions.o
- .text          0x0000000000d0cf9c      0x144 build/keyboard.o
-                0x0000000000d0cf9c                KeyboardUpdate
-                0x0000000000d0d020                KeyWasDown
-                0x0000000000d0d050                KeyboardGetChar
- .text          0x0000000000d0d0e0       0x6c build/mailbox.o
-                0x0000000000d0d0e0                GetMailboxBase
-                0x0000000000d0d0e8                MailboxRead
-                0x0000000000d0d11c                MailboxWrite
- .text          0x0000000000d0d14c      0x1dc build/main.o
- .text          0x0000000000d0d328        0x0 build/mann.o
- .text          0x0000000000d0d328       0x48 build/maths.o
-                0x0000000000d0d328                DivideU32
- .text          0x0000000000d0d370        0x0 build/menu.o
- .text          0x0000000000d0d370        0x0 build/menuControls.o
- .text          0x0000000000d0d370      0x164 build/music.o
-                0x0000000000d0d370                FirstStep
-                0x0000000000d0d3b4                DayOne
-                0x0000000000d0d4cc                DayOneCounter
-                0x0000000000d0d4d0                FirstStepCounter
- .text          0x0000000000d0d4d4       0x18 build/random.o
-                0x0000000000d0d4d4                Random
- .text          0x0000000000d0d4ec      0x298 build/screen.o
-                0x0000000000d0d4ec                screen1
-                0x0000000000d0d558                screen2
-                0x0000000000d0d634                screen3
-                0x0000000000d0d67c                screen4
-                0x0000000000d0d6d0                screen5
- .text          0x0000000000d0d784        0x0 build/select.o
- .text          0x0000000000d0d784        0x0 build/selectControls.o
- .text          0x0000000000d0d784        0x0 build/silver.o
- .text          0x0000000000d0d784      0x198 build/sounds.o
-                0x0000000000d0d784                shotSound
-                0x0000000000d0d808                specialSound
-                0x0000000000d0d88c                buzzer
- .text          0x0000000000d0d91c       0x40 build/systemTimer.o
-                0x0000000000d0d91c                GetSystemTimerBase
-                0x0000000000d0d924                GetTimeStamp
-                0x0000000000d0d934                Wait
- .text          0x0000000000d0d95c       0x74 build/tags.o
-                0x0000000000d0d95c                FindTag
- .text          0x0000000000d0d9d0      0x324 build/tank.o
-                0x0000000000d0d9d0                tank
-                0x0000000000d0dc94                player_Xposition
-                0x0000000000d0dc98                player_Yposition
-                0x0000000000d0dc9c                player_points
-                0x0000000000d0dca0                player_special
-                0x0000000000d0dca4                selectedTank
- .text          0x0000000000d0dcf4        0x0 build/tank_blue.o
- .text          0x0000000000d0dcf4        0x0 build/tank_green.o
- .text          0x0000000000d0dcf4        0x0 build/tank_red.o
- .text          0x0000000000d0dcf4        0x0 build/tank_white.o
- .text          0x0000000000d0dcf4      0x2c0 build/terminal.o
-                0x0000000000d0dd2c                TerminalDisplay
-                0x0000000000d0ddd4                TerminalClear
-                0x0000000000d0ddec                Print
-                0x0000000000d0dec4                ReadLine
- .text          0x0000000000d0dfb4      0x1e4 build/text.o
-                0x0000000000d0dfb4                ReverseString
-                0x0000000000d0dfe0                UnsignedString
-                0x0000000000d0e030                SignedString
-                0x0000000000d0e05c                FormatString
- .text          0x0000000000d0e198        0x0 build/voyage.o
- .text          0x0000000000d0e198        0x0 build/win.o
+ .text          0x0000000000d0c7c8      0x264 build/alien.o
+                0x0000000000d0c7c8                alien
+                0x0000000000d0c944                alienAlive
+                0x0000000000d0c980                alienxPosition
+                0x0000000000d0c9bc                alienyPosition
+ .text          0x0000000000d0ca2c        0x0 build/alien1_a.o
+ .text          0x0000000000d0ca2c        0x0 build/alien1_b.o
+ .text          0x0000000000d0ca2c        0x0 build/alien2_a.o
+ .text          0x0000000000d0ca2c        0x0 build/alien2_b.o
+ .text          0x0000000000d0ca2c        0x0 build/alien3_a.o
+ .text          0x0000000000d0ca2c        0x0 build/alien3_b.o
+ .text          0x0000000000d0ca2c        0x0 build/bronze.o
+ .text          0x0000000000d0ca2c      0x1dc build/drawing.o
+                0x0000000000d0ca2c                SetForeColour
+                0x0000000000d0ca44                SetGraphicsAddress
+                0x0000000000d0ca50                DrawPixel
+                0x0000000000d0ca9c                DrawLine
+                0x0000000000d0cb18                DrawCharacter
+                0x0000000000d0cb84                DrawString
+ .text          0x0000000000d0cc08       0x3c build/figures.o
+                0x0000000000d0cc08                DrawRectangle
+ .text          0x0000000000d0cc44       0x60 build/frameBuffer.o
+                0x0000000000d0cc44                InitialiseFrameBuffer
+ .text          0x0000000000d0cca4        0x0 build/gameover.o
+ .text          0x0000000000d0cca4        0x0 build/gold.o
+ .text          0x0000000000d0cca4       0xb8 build/gpio.o
+                0x0000000000d0cca4                GetGpioAddress
+                0x0000000000d0ccac                SetGpioFunction
+                0x0000000000d0ccfc                SetGpio
+                0x0000000000d0cd38                GetGpio
+ .text          0x0000000000d0cd5c        0x0 build/instructions.o
+ .text          0x0000000000d0cd5c      0x144 build/keyboard.o
+                0x0000000000d0cd5c                KeyboardUpdate
+                0x0000000000d0cde0                KeyWasDown
+                0x0000000000d0ce10                KeyboardGetChar
+ .text          0x0000000000d0cea0       0x6c build/mailbox.o
+                0x0000000000d0cea0                GetMailboxBase
+                0x0000000000d0cea8                MailboxRead
+                0x0000000000d0cedc                MailboxWrite
+ .text          0x0000000000d0cf0c      0x1dc build/main.o
+ .text          0x0000000000d0d0e8        0x0 build/mann.o
+ .text          0x0000000000d0d0e8       0x48 build/maths.o
+                0x0000000000d0d0e8                DivideU32
+ .text          0x0000000000d0d130        0x0 build/menu.o
+ .text          0x0000000000d0d130        0x0 build/menuControls.o
+ .text          0x0000000000d0d130      0x164 build/music.o
+                0x0000000000d0d130                FirstStep
+                0x0000000000d0d174                DayOne
+                0x0000000000d0d28c                DayOneCounter
+                0x0000000000d0d290                FirstStepCounter
+ .text          0x0000000000d0d294       0x18 build/random.o
+                0x0000000000d0d294                Random
+ .text          0x0000000000d0d2ac      0x2ec build/screen.o
+                0x0000000000d0d2ac                screen1
+                0x0000000000d0d320                screen2
+                0x0000000000d0d3fc                screen3
+                0x0000000000d0d444                screen4
+                0x0000000000d0d498                screen5
+                0x0000000000d0d4e8                screen6
+ .text          0x0000000000d0d598        0x0 build/select.o
+ .text          0x0000000000d0d598        0x0 build/selectControls.o
+ .text          0x0000000000d0d598        0x0 build/silver.o
+ .text          0x0000000000d0d598      0x198 build/sounds.o
+                0x0000000000d0d598                shotSound
+                0x0000000000d0d61c                specialSound
+                0x0000000000d0d6a0                buzzer
+ .text          0x0000000000d0d730       0x40 build/systemTimer.o
+                0x0000000000d0d730                GetSystemTimerBase
+                0x0000000000d0d738                GetTimeStamp
+                0x0000000000d0d748                Wait
+ .text          0x0000000000d0d770       0x74 build/tags.o
+                0x0000000000d0d770                FindTag
+ .text          0x0000000000d0d7e4      0x324 build/tank.o
+                0x0000000000d0d7e4                tank
+                0x0000000000d0daa8                player_Xposition
+                0x0000000000d0daac                player_Yposition
+                0x0000000000d0dab0                player_points
+                0x0000000000d0dab4                player_special
+                0x0000000000d0dab8                selectedTank
+ .text          0x0000000000d0db08        0x0 build/tank_blue.o
+ .text          0x0000000000d0db08        0x0 build/tank_green.o
+ .text          0x0000000000d0db08        0x0 build/tank_red.o
+ .text          0x0000000000d0db08        0x0 build/tank_white.o
+ .text          0x0000000000d0db08      0x2c0 build/terminal.o
+                0x0000000000d0db40                TerminalDisplay
+                0x0000000000d0dbe8                TerminalClear
+                0x0000000000d0dc00                Print
+                0x0000000000d0dcd8                ReadLine
+ .text          0x0000000000d0ddc8      0x1e4 build/text.o
+                0x0000000000d0ddc8                ReverseString
+                0x0000000000d0ddf4                UnsignedString
+                0x0000000000d0de44                SignedString
+                0x0000000000d0de70                FormatString
+ .text          0x0000000000d0dfac        0x0 build/voyage.o
+ .text          0x0000000000d0dfac        0x0 build/win.o
 
 /DISCARD/
  *(*)
