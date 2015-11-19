@@ -71,3 +71,35 @@ specialSound:
 		bne cicloSP 					/*Si aun no es 0 el contador, que siga sonando la bocina.*/
 		pop {r2} 					/*Regresamos R2 que fue guardado arriba de bne ciclo3*/
 	pop {pc}
+
+.globl buzzer
+buzzer:
+	push {r12, lr}
+	mov r0, r12
+	mov r2, #50 					/*Nuestro contador*/
+	push {r2} 						/*Se guarda R2 porque lo utilizan las subrutinas*/
+    buzzerCicle:
+		mov r0, #25
+	    mov r1, #1
+	    push {lr}
+	    bl SetGpioFunction
+		pop {lr}
+		setGpio #25, #0
+		
+		mov r0, r12 				/*Tiempo para la frecuencia del sonido*/
+		push {lr}
+		bl Wait
+		pop {lr}
+		SetGpio #25, #1
+		
+		mov r0, r12				/*Tiempo para la frecuencia del sonido*/
+		push {lr}
+		bl Wait
+		pop {lr}
+		pop {r2} 					/*Regresamos el contador*/
+		sub r2, #1 					/*Le restamos 1 al contador*/
+		cmp r2, #0 					/*contador = 0?*/
+		push {r2} 					/*Volvemos a guardar R2 en el stack*/
+		bne buzzerCicle 					/*Si aun no es 0 el contador, que siga sonando la bocina.*/
+		pop {r2} 					/*Regresamos R2 que fue guardado arriba de bne ciclo3*/
+	pop {r12, pc}

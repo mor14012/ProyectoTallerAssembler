@@ -82,7 +82,7 @@ main:
 	SetWrite r5, #1
 
 	bl UsbInitialise
-	
+
 	b screen1
 	
 loop$:

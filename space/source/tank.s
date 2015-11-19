@@ -62,6 +62,10 @@ tankMovement:
 	bleq rightMove
 	cmp r0, #'s' 	
 	bleq collision
+//added
+	cmp r0, #'q'
+	bleq sonido
+	//ends added
 	
 	@@GPIO Button
 	ldr r0, =Button
@@ -78,6 +82,27 @@ tankMovement:
 	blne specialPower
 
 	pop {pc}
+//added
+sonido:
+	push {lr}
+	//PruebaSonidos
+	contador .req r12
+	mov contador, #0
+	ciclo:
+		ldr r0, =FirstStep
+		ldr r0, [r0, contador]
+		push {r1, r3}
+		push {lr}
+		bl buzzer
+		pop {lr}
+		pop {r1, r3}
+		add contador, #4
+		cmp contador, #68
+		bne ciclo
+	
+	.unreq contador
+	pop {pc}
+//ends added
 
 leftMove:
 	push {lr}

@@ -85,6 +85,9 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/menu.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/menu.o
+ .bss           0x0000000000000000        0x0 build/music.o
+ .ARM.attributes
+                0x0000000000000000       0x14 build/music.o
  .bss           0x0000000000000000        0x0 build/random.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/random.o
@@ -94,9 +97,9 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/select.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/select.o
- .bss           0x0000000000000000        0x0 build/sonidos.o
+ .bss           0x0000000000000000        0x0 build/sounds.o
  .ARM.attributes
-                0x0000000000000000       0x14 build/sonidos.o
+                0x0000000000000000       0x14 build/sounds.o
  .bss           0x0000000000000000        0x0 build/systemTimer.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/systemTimer.o
@@ -151,10 +154,11 @@ LOAD build/main.o
 LOAD build/mann.o
 LOAD build/maths.o
 LOAD build/menu.o
+LOAD build/music.o
 LOAD build/random.o
 LOAD build/screen.o
 LOAD build/select.o
-LOAD build/sonidos.o
+LOAD build/sounds.o
 LOAD build/systemTimer.o
 LOAD build/tags.o
 LOAD build/tank.o
@@ -226,13 +230,14 @@ LOAD ./libcsud.a
                 0x00000000004e60f4                menuHeight
                 0x00000000004e60f6                menuWidth
                 0x00000000004e60f8                menu
+ .data          0x00000000006660f8        0x0 build/music.o
  .data          0x00000000006660f8        0x0 build/random.o
  .data          0x00000000006660f8        0x0 build/screen.o
  .data          0x00000000006660f8   0x180004 build/select.o
                 0x00000000006660f8                selectHeight
                 0x00000000006660fa                selectWidth
                 0x00000000006660fc                select
- .data          0x00000000007e60fc        0x0 build/sonidos.o
+ .data          0x00000000007e60fc        0x0 build/sounds.o
  .data          0x00000000007e60fc        0x0 build/systemTimer.o
  .data          0x00000000007e60fc       0x24 build/tags.o
  .data          0x00000000007e6120        0x0 build/tank.o
@@ -441,7 +446,7 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000981080       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x00000000009810b4     0x1398
+.text           0x00000000009810b4     0x14a8
  *.c.o(.text)
  *(.text)
  .text          0x00000000009810b4      0x140 build/DrawImage.o
@@ -493,42 +498,46 @@ LOAD ./libcsud.a
  .text          0x0000000000981be4       0x48 build/maths.o
                 0x0000000000981be4                DivideU32
  .text          0x0000000000981c2c        0x0 build/menu.o
- .text          0x0000000000981c2c       0x18 build/random.o
-                0x0000000000981c2c                Random
- .text          0x0000000000981c44      0x138 build/screen.o
-                0x0000000000981c44                screen1
-                0x0000000000981c6c                screen2
-                0x0000000000981d0c                screen3
-                0x0000000000981d30                screen4
-                0x0000000000981d44                screen5
- .text          0x0000000000981d7c        0x0 build/select.o
- .text          0x0000000000981d7c      0x110 build/sonidos.o
-                0x0000000000981d7c                shotSound
-                0x0000000000981e00                specialSound
- .text          0x0000000000981e8c       0x40 build/systemTimer.o
-                0x0000000000981e8c                GetSystemTimerBase
-                0x0000000000981e94                GetTimeStamp
-                0x0000000000981ea4                Wait
- .text          0x0000000000981ecc       0x74 build/tags.o
-                0x0000000000981ecc                FindTag
- .text          0x0000000000981f40      0x328 build/tank.o
-                0x0000000000981f40                tank
-                0x0000000000982204                player_Xposition
-                0x0000000000982208                player_Yposition
-                0x000000000098220c                player_lives
-                0x0000000000982210                player_points
-                0x0000000000982214                player_special
-                0x0000000000982218                selectedTank
- .text          0x0000000000982268        0x0 build/tank_blue.o
- .text          0x0000000000982268        0x0 build/tank_green.o
- .text          0x0000000000982268        0x0 build/tank_red.o
- .text          0x0000000000982268        0x0 build/tank_white.o
- .text          0x0000000000982268      0x1e4 build/text.o
-                0x0000000000982268                ReverseString
-                0x0000000000982294                UnsignedString
-                0x00000000009822e4                SignedString
-                0x0000000000982310                FormatString
- .text          0x000000000098244c        0x0 build/voyage.o
+ .text          0x0000000000981c2c       0x48 build/music.o
+                0x0000000000981c2c                FirstStep
+                0x0000000000981c70                FirstStepCounter
+ .text          0x0000000000981c74       0x18 build/random.o
+                0x0000000000981c74                Random
+ .text          0x0000000000981c8c      0x138 build/screen.o
+                0x0000000000981c8c                screen1
+                0x0000000000981cb4                screen2
+                0x0000000000981d54                screen3
+                0x0000000000981d78                screen4
+                0x0000000000981d8c                screen5
+ .text          0x0000000000981dc4        0x0 build/select.o
+ .text          0x0000000000981dc4      0x198 build/sounds.o
+                0x0000000000981dc4                shotSound
+                0x0000000000981e48                specialSound
+                0x0000000000981ecc                buzzer
+ .text          0x0000000000981f5c       0x40 build/systemTimer.o
+                0x0000000000981f5c                GetSystemTimerBase
+                0x0000000000981f64                GetTimeStamp
+                0x0000000000981f74                Wait
+ .text          0x0000000000981f9c       0x74 build/tags.o
+                0x0000000000981f9c                FindTag
+ .text          0x0000000000982010      0x368 build/tank.o
+                0x0000000000982010                tank
+                0x0000000000982310                player_Xposition
+                0x0000000000982314                player_Yposition
+                0x0000000000982318                player_lives
+                0x000000000098231c                player_points
+                0x0000000000982320                player_special
+                0x0000000000982324                selectedTank
+ .text          0x0000000000982378        0x0 build/tank_blue.o
+ .text          0x0000000000982378        0x0 build/tank_green.o
+ .text          0x0000000000982378        0x0 build/tank_red.o
+ .text          0x0000000000982378        0x0 build/tank_white.o
+ .text          0x0000000000982378      0x1e4 build/text.o
+                0x0000000000982378                ReverseString
+                0x00000000009823a4                UnsignedString
+                0x00000000009823f4                SignedString
+                0x0000000000982420                FormatString
+ .text          0x000000000098255c        0x0 build/voyage.o
 
 /DISCARD/
  *(*)
