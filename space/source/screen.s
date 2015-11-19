@@ -83,7 +83,6 @@ screen2:
 screen3:
 	ldr r0, =mann
 	mov r1, #0
-	@aqui habia un 1 por alguna razon. abajo
 	mov r2, #0
 	bl DrawImage 		
 	screen3Cicle:
