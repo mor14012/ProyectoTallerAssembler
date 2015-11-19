@@ -186,5 +186,25 @@ screen5:
 	mov r1, #0
 	mov r2, #0
 	bl DrawImage
+
+	bl KeyboardUpdate
+	bl KeyboardGetChar
+
+	cmp r0, #'m'
+	beq screen1
+
+	ldr r1,=FirstStepCounter
+	ldr r2, [r1]
+	add r2, #4
+	teq r2, #68
+	moveq r2, #0
+	ldr r1,=FirstStepCounter
+	str r2, [r1]
+
+	ldr r0,=FirstStep
+	ldr r0, [r0, r2]
+	mov r1, #230
+	bl buzzer
+
 	b screen5
 
