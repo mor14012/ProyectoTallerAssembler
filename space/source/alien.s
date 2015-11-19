@@ -100,7 +100,7 @@ alien:
 		CheckGameOverCicle:
 			ldr r3, [r1, r0]
 			cmp r3, r2
-			bge screen4
+			bge screenGameOver
 			add r0, #4
 			cmp r0, #60
 			bne CheckGameOverCicle
@@ -114,7 +114,7 @@ alien:
 			bne alienEnd
 			add r0, #4
 			cmp r0, #60
-			beq screen1
+			beq screenWin
 			b CheckWinCicle
 
 	alienEnd:
