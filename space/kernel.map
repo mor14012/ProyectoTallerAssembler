@@ -446,7 +446,7 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000981080       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x00000000009810b4     0x14a8
+.text           0x00000000009810b4     0x15e0
  *.c.o(.text)
  *(.text)
  .text          0x00000000009810b4      0x140 build/DrawImage.o
@@ -498,46 +498,48 @@ LOAD ./libcsud.a
  .text          0x0000000000981be4       0x48 build/maths.o
                 0x0000000000981be4                DivideU32
  .text          0x0000000000981c2c        0x0 build/menu.o
- .text          0x0000000000981c2c       0x48 build/music.o
+ .text          0x0000000000981c2c      0x164 build/music.o
                 0x0000000000981c2c                FirstStep
-                0x0000000000981c70                FirstStepCounter
- .text          0x0000000000981c74       0x18 build/random.o
-                0x0000000000981c74                Random
- .text          0x0000000000981c8c      0x138 build/screen.o
-                0x0000000000981c8c                screen1
-                0x0000000000981cb4                screen2
-                0x0000000000981d54                screen3
-                0x0000000000981d78                screen4
-                0x0000000000981d8c                screen5
- .text          0x0000000000981dc4        0x0 build/select.o
- .text          0x0000000000981dc4      0x198 build/sounds.o
-                0x0000000000981dc4                shotSound
-                0x0000000000981e48                specialSound
-                0x0000000000981ecc                buzzer
- .text          0x0000000000981f5c       0x40 build/systemTimer.o
-                0x0000000000981f5c                GetSystemTimerBase
-                0x0000000000981f64                GetTimeStamp
-                0x0000000000981f74                Wait
- .text          0x0000000000981f9c       0x74 build/tags.o
-                0x0000000000981f9c                FindTag
- .text          0x0000000000982010      0x368 build/tank.o
-                0x0000000000982010                tank
-                0x0000000000982310                player_Xposition
-                0x0000000000982314                player_Yposition
-                0x0000000000982318                player_lives
-                0x000000000098231c                player_points
-                0x0000000000982320                player_special
-                0x0000000000982324                selectedTank
- .text          0x0000000000982378        0x0 build/tank_blue.o
- .text          0x0000000000982378        0x0 build/tank_green.o
- .text          0x0000000000982378        0x0 build/tank_red.o
- .text          0x0000000000982378        0x0 build/tank_white.o
- .text          0x0000000000982378      0x1e4 build/text.o
-                0x0000000000982378                ReverseString
-                0x00000000009823a4                UnsignedString
-                0x00000000009823f4                SignedString
-                0x0000000000982420                FormatString
- .text          0x000000000098255c        0x0 build/voyage.o
+                0x0000000000981c70                DayOne
+                0x0000000000981d88                DayOneCounter
+                0x0000000000981d8c                FirstStepCounter
+ .text          0x0000000000981d90       0x18 build/random.o
+                0x0000000000981d90                Random
+ .text          0x0000000000981da8      0x194 build/screen.o
+                0x0000000000981da8                screen1
+                0x0000000000981dfc                screen2
+                0x0000000000981e9c                screen3
+                0x0000000000981ee4                screen4
+                0x0000000000981ef8                screen5
+ .text          0x0000000000981f3c        0x0 build/select.o
+ .text          0x0000000000981f3c      0x198 build/sounds.o
+                0x0000000000981f3c                shotSound
+                0x0000000000981fc0                specialSound
+                0x0000000000982044                buzzer
+ .text          0x00000000009820d4       0x40 build/systemTimer.o
+                0x00000000009820d4                GetSystemTimerBase
+                0x00000000009820dc                GetTimeStamp
+                0x00000000009820ec                Wait
+ .text          0x0000000000982114       0x74 build/tags.o
+                0x0000000000982114                FindTag
+ .text          0x0000000000982188      0x328 build/tank.o
+                0x0000000000982188                tank
+                0x000000000098244c                player_Xposition
+                0x0000000000982450                player_Yposition
+                0x0000000000982454                player_lives
+                0x0000000000982458                player_points
+                0x000000000098245c                player_special
+                0x0000000000982460                selectedTank
+ .text          0x00000000009824b0        0x0 build/tank_blue.o
+ .text          0x00000000009824b0        0x0 build/tank_green.o
+ .text          0x00000000009824b0        0x0 build/tank_red.o
+ .text          0x00000000009824b0        0x0 build/tank_white.o
+ .text          0x00000000009824b0      0x1e4 build/text.o
+                0x00000000009824b0                ReverseString
+                0x00000000009824dc                UnsignedString
+                0x000000000098252c                SignedString
+                0x0000000000982558                FormatString
+ .text          0x0000000000982694        0x0 build/voyage.o
 
 /DISCARD/
  *(*)

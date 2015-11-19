@@ -72,18 +72,21 @@ specialSound:
 		pop {r2} 					/*Regresamos R2 que fue guardado arriba de bne ciclo3*/
 	pop {pc}
 
+@Parametros de entrada
+@R0: frecuencia
+@R1: delay 
 .globl buzzer
 buzzer:
 	push {r12, lr}
-	mov r0, r12
-	mov r2, #50 					/*Nuestro contador*/
+	mov r12, r0
+	mov r2, r1 					/*Nuestro contador*/
 	push {r2} 						/*Se guarda R2 porque lo utilizan las subrutinas*/
+	mov r0, #25
+    mov r1, #1
+    push {lr}
+    bl SetGpioFunction
+	pop {lr}	
     buzzerCicle:
-		mov r0, #25
-	    mov r1, #1
-	    push {lr}
-	    bl SetGpioFunction
-		pop {lr}
 		setGpio #25, #0
 		
 		mov r0, r12 				/*Tiempo para la frecuencia del sonido*/

@@ -16,6 +16,21 @@ screen1:
 		@beq screen5
 		@teq r0, #'s'
 
+		
+		ldr r1,=FirstStepCounter
+		ldr r2, [r1]
+		add r2, #4
+		teq r2, #68
+		moveq r2, #0
+		ldr r1,=FirstStepCounter
+		str r2, [r1]
+
+		ldr r0,=FirstStep
+		ldr r0, [r0, r2]
+		mov r1, #250
+		bl buzzer
+
+
 		b screen1Cicle
 	
 	b screen1
@@ -91,8 +106,18 @@ screen3:
 
 		bl tank
 
-		ldr r0,=50000
-		bl Wait
+		ldr r1,=DayOneCounter
+		ldr r2, [r1]
+		add r2, #4
+		teq r2, #280
+		moveq r2, #0
+		ldr r1,=DayOneCounter
+		str r2, [r1]
+
+		ldr r0,=DayOne
+		ldr r0, [r0, r2]
+		mov r1, #200
+		bl buzzer
 		
 		b screen3Cicle
 
