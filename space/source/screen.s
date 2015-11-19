@@ -6,15 +6,21 @@ screen1:
 	mov r2, #0
 	bl DrawImage
 
+	ldr r0,=menuControls
+	ldr r1,=329
+	ldr r2,=700
+	bl DrawImage
+
 	screen1Cicle:
 			bl KeyboardUpdate
 			bl KeyboardGetChar 			/*Se obtiene el caracter que se presiono en el teclado*/
 
 		teq r0, #'j' 		
 		beq screen2
-		@teq r0, #'i' 	
-		@beq screen5
+		teq r0, #'i' 	
+		beq screen5
 		@teq r0, #'s'
+
 
 		
 		ldr r1,=FirstStepCounter
@@ -42,6 +48,11 @@ screen2:
 	ldr r0, =select
 	mov r1, #0
 	mov r2, #0
+	bl DrawImage
+
+	ldr r0,=selectControls
+	ldr r1,=329
+	ldr r2,=700
 	bl DrawImage
 
 	ldr r0, =tank_red
