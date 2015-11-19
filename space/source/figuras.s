@@ -2,10 +2,8 @@
 @Taller de Assembler
 @Sección: 11
 @Martha Ligia Naranjo Franky
-@Laboratorio 7
-@09/10/2015
 @Diego Alberto Morales Ibanez. Carne: 14012
-@Julio Octavio Gonzalez Gonzalez. Carne: 14096
+
 
 .globl DrawCircle
 @ --------DrawCircle---------

@@ -19,8 +19,8 @@ screen1:
 		beq screen2
 		teq r0, #'i' 	
 		beq screen5
-		@teq r0, #'s'
-
+		teq r0, #'s'
+		beq screen6
 
 		
 		ldr r1,=FirstStepCounter
@@ -208,3 +208,26 @@ screen5:
 
 	b screen5
 
+.globl screen6
+screen6:
+	mov r0, #0
+	mov r1, #1
+	ldr r2,=1024
+	ldr r3,=768
+	bl DrawRectangle
+
+	screen6Cicle:
+		ldr r0,=alien1_a
+		ldr r1,=468
+		ldr r2,=352
+		bl DrawImage
+
+		ld r0,=500000
+		bl Wait
+		
+		ldr r0,=alien1_b
+		ldr r1,=468
+		ldr r2,=352
+		bl DrawImageTransparency
+				
+		b screen6Cicle
