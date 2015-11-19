@@ -10,10 +10,9 @@ alien:
 	CheckAlien:
 		ldr r0, =alienAlive
 		ldr r0, [r0, counter]
-		
-		@@**********BUG************
+
 		cmp counter, #-4
-		beq CheckWin
+		beq UpdateAlienState
 
 		cmp r0, #0
 		subeq counter, #4
@@ -62,7 +61,7 @@ alien:
 		ldr r2, [r2]
 		cmp r2, #32
 		subge r1, #25 
-		addlt r1, #25 			/*Los aliens se mueven 15 pixeles a la izquierda*/
+		addlt r1, #25 			/*Los aliens se mueven 25 pixeles a la izquierda*/
 
 		cmp r2, #31
 		bleq UpdateAlienYPosition

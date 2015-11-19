@@ -69,6 +69,12 @@ tankMovement:
 	bl GetGpio
 
 	cmp r0, #0
+	push {r0-r3}
+	push {lr}
+	blne specialSound
+	pop {lr}
+	pop {r0-r3}
+	cmp r0, #0
 	blne specialPower
 
 	pop {pc}
@@ -119,6 +125,12 @@ rightMove:
 	
 collision:
 	push {r12, lr}
+
+	push {r0-r3}
+	push {lr}
+	bl shotSound
+	pop {lr}
+	pop {r0-r3}
 
 	ccounter .req r12 		
 	mov ccounter, #56
