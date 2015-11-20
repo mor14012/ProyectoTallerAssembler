@@ -35,63 +35,30 @@
 	bl SetGpioFunction
 .endm
 
-/******************************************************************************
-*	main.s
-*	 by Alex Chadwick
-*
-*	A sample assembly code implementation of the input02 operating system, that 
-*	demonstrates a command line interface.
-*
-*	main.s contains the main operating system, and IVT code.
-******************************************************************************/
 
-/*
-* .globl is a directive to our assembler, that tells it to export this symbol
-* to the elf file. Convention dictates that the symbol _start is used for the 
-* entry point, so this all has the net effect of setting the entry point here.
-* Ultimately, this is useless as the elf itself is not used in the final 
-* result, and so the entry point really doesnt matter, but it aids clarity,
-* allows simulators to run the elf, and also stops us getting a linker warning
-* about having no entry point. 
-*/
 .section .init
 .globl _start
 _start:
 
-/*
-* Branch to the actual main code.
-*/
 b main
 
-/*
-* This command tells the assembler to put this code with the rest.
-*/
+
 .section .text
 
-/*
-* main is what we shall call our main operating system method. It never 
-* returns, and takes no parameters.
-* C++ Signature: void main(void)
-*/
+
 main:
 
-/*
-* Set the stack point to 0x8000.
-*/
+
 	mov sp,#0x8000
 
-/* 
-* Setup the screen.
-*/
+
 
 	mov r0,#1024
 	mov r1,#768
 	mov r2,#16
 	bl InitialiseFrameBuffer
 
-/* 
-* Check for a failed frame buffer.
-*/
+
 	teq r0,#0
 	bne noError$
 		
@@ -109,20 +76,17 @@ main:
 	noError$:
 
 
-/*
-* Let our drawing method know where we are drawing to.
-*/
 	bl SetGraphicsAddress
 
-	ldr r4, =Button
+	ldr r4, =Button 			@Se carga de memoria el puerto GPIO para el PushButoton
 	ldr r4, [r4]
-	ldr r5, =Led
+	ldr r5, =Led 				@Se carga de memoria el puerto GPIO para el LED
 	ldr r5, [r5]
 
-	SetIO r4, #0
-	SetIO r5, #1
+	SetIO r4, #0 				@Configuracion del puerto 8 como entrada.
+	SetIO r5, #1 				@Configuracion del puerto 11 como salida.
 
-	SetWrite r5, #1
+	SetWrite r5, #1 			@Se enciende el LED del puerto 11.
 
 	bl UsbInitialise
 	
@@ -249,8 +213,16 @@ ok:
 		mov r0,#16
 		b SetGpio
 
-juego:
-	b screen1
+@---si---
+@---Esta subrutina manda al usuario al inicio del juego.
+si:
+		ldrb r2,[r0,#0] 	@Se carga la primera letra ingresada por el usuario
+		teq r2,#'s' 		@Si no es 's', se regresa nuevamente a la terminal
+		movne pc,lr
+		ldrb r2,[r0,#1] 	@Se carga la segunda letra
+		teq r2,#'i' 		@Si no es 'i', se regresa nuevamente a la terminal
+		movne pc,lr
+		b screen1 			@Si si se cumplieron todas las condiciones anteriores, se inicia el juego
 	
 .section .data
 .align 2
@@ -263,7 +235,7 @@ Led:
 
 
 welcome:
-	.ascii "Bienvenido al Endurance. Los alienigenas estan invadiendo Mann. Es tu mision detenerlos, si decides aceptarla. \n si \n no"
+	.ascii "Bienvenido al Endurance. Los alienigenas estan invadiendo Mann. Es tu mision detenerlos, si decides aceptarla. \n si"
 welcomeEnd:
 .align 2
 prompt:
@@ -301,5 +273,5 @@ commandTable:
 .int commandStringReset, reset$
 .int commandStringOk, ok
 .int commandStringCls, TerminalClear
-.int commandStringSi, juego
+.int commandStringSi, si
 .int commandStringEnd, 0

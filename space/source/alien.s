@@ -98,6 +98,12 @@ alien:
 		moveq r1, #0 									@Si son iguales entonces asigna 0
 		str r1, [r0] 									@Almacena el valor de la variable de estado
 
+	UpdatePlayerPoints:
+		ldr r0,=player_points 							@Se apunta a la puntuacion del jugador
+		ldr r1, [r0] 									@Se carga el valor de la puntuacion del jugador
+		add r1, #1 										@Se suma 1 a la puntuacion del jugador
+		str r1, [r0]  									@Se almacena la puntuacion del jugador
+
 	CheckGameOver:
 		mov r0, #0 										@Inicializacion de contador en 0
 		ldr r1,=alienyPosition 							@Se apunta a la posicion en Y del alien
@@ -131,11 +137,6 @@ alien:
 		ldr r1, [r0, counter] 							@Carga la posicion en Y del alien seleccionado
 		add r1, #100 									@Suma 100 a la posicion en Y
 		str r1, [r0, counter] 							@Se almacena la posicion en Y
-
-		ldr r0,=player_points 							@Se apunta a los puntos del jugador
-		ldr r1, [r0] 									@Carga el valor de los puntos del jugador
-		add r1, #1 										@Suma 1 a los puntos del jugador
-		str r1, [r0]  									@Se almacenan los puntos del jugador
 		pop {r0, r1} 									@Se retiran los registros almacenados en el SP
 		mov pc, lr 										@Se asigna el LR al PC
 

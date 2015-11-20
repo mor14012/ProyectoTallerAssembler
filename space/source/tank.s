@@ -1,5 +1,7 @@
-
+@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 @-----------MACROS-----------
+@-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
 @ -----------SetWrite----------
 @ Permite encender o apagar
 @ un pin (led) especifico.
@@ -17,37 +19,45 @@
 	bl SetGpio
 .endm
 
+@tank
+@---Esta subrutina carga el tanque  durante toda la 
+@---partida seleccionado por el usuario. Tambien se encarga del 
+@---movimiento del tanque (si lo hay).
+
 .globl tank
 tank:
 	push {lr}
 
-	bl tankMovement
+	bl tankMovement 			@Llamado a la subrutina para ver si hay movimiento
 
-	ldr r0, =selectedTank
+	ldr r0, =selectedTank 		@Se carga el tanque seleccionado por el usuario (previamente guardado en memoria)
 	ldr r0, [r0]
-	cmp r0, #1
+	cmp r0, #1 					@Si se selecciono el tanque rojo, se carga la respectiva direccion
 	ldreq r0, =tank_red
 
-	cmp r0, #2
+	cmp r0, #2 					@Si se selecciono el tanque verde, se carga la respectiva direccion
 	ldreq r0, =tank_green
 
-	cmp r0, #3
+	cmp r0, #3 					@Si se selecciono el tanque azul, se carga la respectiva direccion
 	ldreq r0, =tank_blue
 
-	cmp r0, #4
+	cmp r0, #4 					@Si se selecciono el tanque blanco, se carga la respectiva direccion
 	ldreq r0, =tank_white
 
-	ldr r1, =player_Xposition
+	ldr r1, =player_Xposition 	@Se carga la posicion en X del tanque.
 	ldr r1, [r1]
-	ldr r2, =player_Yposition
+	ldr r2, =player_Yposition 	@Se carga la posicion en Y del tanque.
 	ldr r2, [r2]
-	mov r3, #0
+	mov r3, #0 					@El color de fondo de la imagen del tanque es el negro
 
-	bl DrawImageTransparency
+	bl DrawImageTransparency 	@Llamado a la subrutina para pintar el tanque sin el fondo (negro)
 
 	pop {pc}
 
-
+@tankMovement
+@---Esta subrutina se encarga del movimiento del tanque (si lo hay)
+@---partida seleccionado por el usuario. Tambien se encarga del 
+@---movimiento del tanque (si lo hay).
 tankMovement:
 
 	push {lr}

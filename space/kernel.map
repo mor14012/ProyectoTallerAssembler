@@ -262,58 +262,58 @@ LOAD ./libcsud.a
  *fill*         0x0000000000532acc        0x4 
  .data          0x0000000000532ad0       0xe0 build/keyboard.o
  .data          0x0000000000532bb0        0x0 build/mailbox.o
- .data          0x0000000000532bb0      0x268 build/main.o
+ .data          0x0000000000532bb0      0x264 build/main.o
                 0x0000000000532bb0                Button
                 0x0000000000532bb4                Led
- .data          0x0000000000532e18   0x180004 build/mann.o
-                0x0000000000532e18                mannHeight
-                0x0000000000532e1a                mannWidth
-                0x0000000000532e1c                mann
- .data          0x00000000006b2e1c        0x0 build/maths.o
- .data          0x00000000006b2e1c   0x180004 build/menu.o
-                0x00000000006b2e1c                menuHeight
-                0x00000000006b2e1e                menuWidth
-                0x00000000006b2e20                menu
- .data          0x0000000000832e20     0x673c build/menuControls.o
-                0x0000000000832e20                menuControlsHeight
-                0x0000000000832e22                menuControlsWidth
-                0x0000000000832e24                menuControls
- .data          0x000000000083955c        0x0 build/music.o
- .data          0x000000000083955c        0x0 build/random.o
- .data          0x000000000083955c        0x0 build/screen.o
- .data          0x000000000083955c   0x180004 build/select.o
-                0x000000000083955c                selectHeight
-                0x000000000083955e                selectWidth
-                0x0000000000839560                select
- .data          0x00000000009b9560     0x6576 build/selectControls.o
-                0x00000000009b9560                selectControlsHeight
-                0x00000000009b9562                selectControlsWidth
-                0x00000000009b9564                selectControls
- .data          0x00000000009bfad6    0x26ac4 build/silver.o
-                0x00000000009bfad6                silverHeight
-                0x00000000009bfad8                silverWidth
-                0x00000000009bfada                silver
- .data          0x00000000009e659a        0x0 build/sounds.o
- .data          0x00000000009e659a        0x0 build/systemTimer.o
- .data          0x00000000009e659a       0x24 build/tags.o
- .data          0x00000000009e65be        0x0 build/tank.o
- .data          0x00000000009e65be     0x3c04 build/tank_blue.o
-                0x00000000009e65be                tank_blueHeight
-                0x00000000009e65c0                tank_blueWidth
-                0x00000000009e65c2                tank_blue
- .data          0x00000000009ea1c2     0x3c04 build/tank_green.o
-                0x00000000009ea1c2                tank_greenHeight
-                0x00000000009ea1c4                tank_greenWidth
-                0x00000000009ea1c6                tank_green
- .data          0x00000000009eddc6     0x3c04 build/tank_red.o
-                0x00000000009eddc6                tank_redHeight
-                0x00000000009eddc8                tank_redWidth
-                0x00000000009eddca                tank_red
- .data          0x00000000009f19ca     0x3c04 build/tank_white.o
-                0x00000000009f19ca                tank_whiteHeight
-                0x00000000009f19cc                tank_whiteWidth
-                0x00000000009f19ce                tank_white
- *fill*         0x00000000009f55ce       0x32 
+ .data          0x0000000000532e14   0x180004 build/mann.o
+                0x0000000000532e14                mannHeight
+                0x0000000000532e16                mannWidth
+                0x0000000000532e18                mann
+ .data          0x00000000006b2e18        0x0 build/maths.o
+ .data          0x00000000006b2e18   0x180004 build/menu.o
+                0x00000000006b2e18                menuHeight
+                0x00000000006b2e1a                menuWidth
+                0x00000000006b2e1c                menu
+ .data          0x0000000000832e1c     0x673c build/menuControls.o
+                0x0000000000832e1c                menuControlsHeight
+                0x0000000000832e1e                menuControlsWidth
+                0x0000000000832e20                menuControls
+ .data          0x0000000000839558        0x0 build/music.o
+ .data          0x0000000000839558        0x0 build/random.o
+ .data          0x0000000000839558        0x0 build/screen.o
+ .data          0x0000000000839558   0x180004 build/select.o
+                0x0000000000839558                selectHeight
+                0x000000000083955a                selectWidth
+                0x000000000083955c                select
+ .data          0x00000000009b955c     0x6576 build/selectControls.o
+                0x00000000009b955c                selectControlsHeight
+                0x00000000009b955e                selectControlsWidth
+                0x00000000009b9560                selectControls
+ .data          0x00000000009bfad2    0x26ac4 build/silver.o
+                0x00000000009bfad2                silverHeight
+                0x00000000009bfad4                silverWidth
+                0x00000000009bfad6                silver
+ .data          0x00000000009e6596        0x0 build/sounds.o
+ .data          0x00000000009e6596        0x0 build/systemTimer.o
+ .data          0x00000000009e6596       0x24 build/tags.o
+ .data          0x00000000009e65ba        0x0 build/tank.o
+ .data          0x00000000009e65ba     0x3c04 build/tank_blue.o
+                0x00000000009e65ba                tank_blueHeight
+                0x00000000009e65bc                tank_blueWidth
+                0x00000000009e65be                tank_blue
+ .data          0x00000000009ea1be     0x3c04 build/tank_green.o
+                0x00000000009ea1be                tank_greenHeight
+                0x00000000009ea1c0                tank_greenWidth
+                0x00000000009ea1c2                tank_green
+ .data          0x00000000009eddc2     0x3c04 build/tank_red.o
+                0x00000000009eddc2                tank_redHeight
+                0x00000000009eddc4                tank_redWidth
+                0x00000000009eddc6                tank_red
+ .data          0x00000000009f19c6     0x3c04 build/tank_white.o
+                0x00000000009f19c6                tank_whiteHeight
+                0x00000000009f19c8                tank_whiteWidth
+                0x00000000009f19ca                tank_white
+ *fill*         0x00000000009f55ca       0x36 
  .data          0x00000000009f5600     0xb100 build/terminal.o
  .data          0x0000000000a00700        0x0 build/text.o
  .data          0x0000000000a00700   0x180004 build/voyage.o
@@ -508,7 +508,7 @@ LOAD ./libcsud.a
  .ARM.attributes
                 0x0000000000d0c658       0x32 ./libcsud.a(platform.broadcom2835.c.o)
 
-.text           0x0000000000d0c68c     0x1920
+.text           0x0000000000d0c68c     0x193c
  *.c.o(.text)
  *(.text)
  .text          0x0000000000d0c68c      0x13c build/DrawImage.o
@@ -554,62 +554,64 @@ LOAD ./libcsud.a
                 0x0000000000d0cea0                GetMailboxBase
                 0x0000000000d0cea8                MailboxRead
                 0x0000000000d0cedc                MailboxWrite
- .text          0x0000000000d0cf0c      0x1dc build/main.o
- .text          0x0000000000d0d0e8        0x0 build/mann.o
- .text          0x0000000000d0d0e8       0x48 build/maths.o
-                0x0000000000d0d0e8                DivideU32
- .text          0x0000000000d0d130        0x0 build/menu.o
- .text          0x0000000000d0d130        0x0 build/menuControls.o
- .text          0x0000000000d0d130      0x164 build/music.o
-                0x0000000000d0d130                FirstStep
-                0x0000000000d0d174                DayOne
-                0x0000000000d0d28c                DayOneCounter
-                0x0000000000d0d290                FirstStepCounter
- .text          0x0000000000d0d294       0x18 build/random.o
-                0x0000000000d0d294                Random
- .text          0x0000000000d0d2ac      0x2ec build/screen.o
-                0x0000000000d0d2ac                screen1
-                0x0000000000d0d320                screen2
-                0x0000000000d0d3fc                screen3
-                0x0000000000d0d444                screen4
-                0x0000000000d0d498                screen5
-                0x0000000000d0d4e8                screen6
- .text          0x0000000000d0d598        0x0 build/select.o
- .text          0x0000000000d0d598        0x0 build/selectControls.o
- .text          0x0000000000d0d598        0x0 build/silver.o
- .text          0x0000000000d0d598      0x198 build/sounds.o
-                0x0000000000d0d598                shotSound
-                0x0000000000d0d61c                specialSound
-                0x0000000000d0d6a0                buzzer
- .text          0x0000000000d0d730       0x40 build/systemTimer.o
-                0x0000000000d0d730                GetSystemTimerBase
-                0x0000000000d0d738                GetTimeStamp
-                0x0000000000d0d748                Wait
- .text          0x0000000000d0d770       0x74 build/tags.o
-                0x0000000000d0d770                FindTag
- .text          0x0000000000d0d7e4      0x324 build/tank.o
-                0x0000000000d0d7e4                tank
-                0x0000000000d0daa8                player_Xposition
-                0x0000000000d0daac                player_Yposition
-                0x0000000000d0dab0                player_points
-                0x0000000000d0dab4                player_special
-                0x0000000000d0dab8                selectedTank
- .text          0x0000000000d0db08        0x0 build/tank_blue.o
- .text          0x0000000000d0db08        0x0 build/tank_green.o
- .text          0x0000000000d0db08        0x0 build/tank_red.o
- .text          0x0000000000d0db08        0x0 build/tank_white.o
- .text          0x0000000000d0db08      0x2c0 build/terminal.o
-                0x0000000000d0db40                TerminalDisplay
-                0x0000000000d0dbe8                TerminalClear
-                0x0000000000d0dc00                Print
-                0x0000000000d0dcd8                ReadLine
- .text          0x0000000000d0ddc8      0x1e4 build/text.o
-                0x0000000000d0ddc8                ReverseString
-                0x0000000000d0ddf4                UnsignedString
-                0x0000000000d0de44                SignedString
-                0x0000000000d0de70                FormatString
- .text          0x0000000000d0dfac        0x0 build/voyage.o
- .text          0x0000000000d0dfac        0x0 build/win.o
+ .text          0x0000000000d0cf0c      0x1f4 build/main.o
+ .text          0x0000000000d0d100        0x0 build/mann.o
+ .text          0x0000000000d0d100       0x48 build/maths.o
+                0x0000000000d0d100                DivideU32
+ .text          0x0000000000d0d148        0x0 build/menu.o
+ .text          0x0000000000d0d148        0x0 build/menuControls.o
+ .text          0x0000000000d0d148      0x164 build/music.o
+                0x0000000000d0d148                FirstStep
+                0x0000000000d0d18c                DayOne
+                0x0000000000d0d2a4                DayOneCounter
+                0x0000000000d0d2a8                FirstStepCounter
+ .text          0x0000000000d0d2ac       0x18 build/random.o
+                0x0000000000d0d2ac                Random
+ .text          0x0000000000d0d2c4      0x2f0 build/screen.o
+                0x0000000000d0d2c4                screen1
+                0x0000000000d0d338                screen2
+                0x0000000000d0d414                screen3
+                0x0000000000d0d45c                screen4
+                0x0000000000d0d45c                screenGameOver
+                0x0000000000d0d470                screenWin
+                0x0000000000d0d4b0                screen5
+                0x0000000000d0d500                screen6
+ .text          0x0000000000d0d5b4        0x0 build/select.o
+ .text          0x0000000000d0d5b4        0x0 build/selectControls.o
+ .text          0x0000000000d0d5b4        0x0 build/silver.o
+ .text          0x0000000000d0d5b4      0x198 build/sounds.o
+                0x0000000000d0d5b4                shotSound
+                0x0000000000d0d638                specialSound
+                0x0000000000d0d6bc                buzzer
+ .text          0x0000000000d0d74c       0x40 build/systemTimer.o
+                0x0000000000d0d74c                GetSystemTimerBase
+                0x0000000000d0d754                GetTimeStamp
+                0x0000000000d0d764                Wait
+ .text          0x0000000000d0d78c       0x74 build/tags.o
+                0x0000000000d0d78c                FindTag
+ .text          0x0000000000d0d800      0x324 build/tank.o
+                0x0000000000d0d800                tank
+                0x0000000000d0dac4                player_Xposition
+                0x0000000000d0dac8                player_Yposition
+                0x0000000000d0dacc                player_points
+                0x0000000000d0dad0                player_special
+                0x0000000000d0dad4                selectedTank
+ .text          0x0000000000d0db24        0x0 build/tank_blue.o
+ .text          0x0000000000d0db24        0x0 build/tank_green.o
+ .text          0x0000000000d0db24        0x0 build/tank_red.o
+ .text          0x0000000000d0db24        0x0 build/tank_white.o
+ .text          0x0000000000d0db24      0x2c0 build/terminal.o
+                0x0000000000d0db5c                TerminalDisplay
+                0x0000000000d0dc04                TerminalClear
+                0x0000000000d0dc1c                Print
+                0x0000000000d0dcf4                ReadLine
+ .text          0x0000000000d0dde4      0x1e4 build/text.o
+                0x0000000000d0dde4                ReverseString
+                0x0000000000d0de10                UnsignedString
+                0x0000000000d0de60                SignedString
+                0x0000000000d0de8c                FormatString
+ .text          0x0000000000d0dfc8        0x0 build/voyage.o
+ .text          0x0000000000d0dfc8        0x0 build/win.o
 
 /DISCARD/
  *(*)

@@ -33,7 +33,7 @@ screen1:
 
 		ldr r0,=FirstStep
 		ldr r0, [r0, r2]
-		mov r1, #250
+		mov r1, #200
 		bl buzzer
 
 
@@ -140,7 +140,7 @@ screen3:
 
 		ldr r0,=DayOne
 		ldr r0, [r0, r2]
-		mov r1, #200
+		mov r1, #100
 		bl buzzer
 		
 		b screen3Cicle
@@ -148,6 +148,7 @@ screen3:
 @Pantalla de resultados
 .globl screen4
 screen4:
+	.globl screenGameOver
 	screenGameOver: 			@Si perdio se carga este fondo
 		ldr r0,=gameover
 		mov r1, #0
@@ -155,6 +156,7 @@ screen4:
 		bl DrawImage
 		b screen4Cicle	
 	
+	.globl screenWin
 	screenWin: 					@Si gana se carga este fondo (y la medalla respectiva)
 		ldr r0,=win
 		mov r1, #0
@@ -164,15 +166,15 @@ screen4:
 		@@NEW POINTS AND BADGES
 		ldr r1, =player_points
 		ldr r1, [r1]
-		cmp r1, #4
-		ldrle r0,=bronze
-		cmp r1, #3
+		ldr r0,=bronze
+		cmp r1, #128
 		ldrle r0,=silver
-		cmp r1, #2
+		cmp r1, #64
 		ldrle r0,=gold
 
 		ldr r1,=392
 		ldr r2,=384
+		ldr r3, =46884
 		bl DrawImageTransparency
 
 
@@ -203,7 +205,7 @@ screen5:
 
 	ldr r0,=FirstStep
 	ldr r0, [r0, r2]
-	mov r1, #230
+	mov r1, #150
 	bl buzzer
 
 	b screen5
